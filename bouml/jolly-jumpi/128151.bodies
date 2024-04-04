@@ -1,0 +1,7 @@
+class IHM
+!!!128151.cpp!!!	IHM(inout parent : QWidget = nullptr)
+    qDebug() << Q_FUNC_INFO;
+    ui->setupUi(this);
+!!!128279.cpp!!!	~IHM()
+    delete ui;
+    qDebug() << Q_FUNC_INFO;
