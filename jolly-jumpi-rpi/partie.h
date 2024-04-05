@@ -1,17 +1,17 @@
 #ifndef PARTIE_H
 #define PARTIE_H
 
-#include <QObject>
+#include <QWidget>
 
-class Partie : public QObject
+class Partie : public QWidget
 {
     Q_OBJECT
 
-  public:
-    explicit Partie(QObject* parent = nullptr);
-    ~Partie();
+public:
+    explicit Partie(const QString& imagePath, QWidget *parent = nullptr);
 
-  private:
+private:
+    void setupUI(const QString& imagePath);
 };
 
 #endif // PARTIE_H

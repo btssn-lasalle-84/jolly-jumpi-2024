@@ -14,7 +14,7 @@ class Partie;
 
 namespace Ui
 {
-class IHM;
+    class IHM;
 }
 
 /**
@@ -26,14 +26,19 @@ class IHM : public QMainWindow
 {
     Q_OBJECT
 
-  public:
-    explicit IHM(QWidget* parent = nullptr);
-    ~IHM();
+    public:
+        explicit IHM(QWidget* parent = nullptr);
+        ~IHM();
 
-  private:
-    Partie* partie; //!< association vers la classe Quizzy
-    // La GUI
-    Ui::IHM* ui; //!< la GUI de cette classe
+    private:
+        Partie* partie; //!< association vers la classe Quizzy
+        // La GUI
+        Ui::IHM* ui; //!< la GUI de cette classe
+        IHM* lancerPartie();
+
+        void createBaniere();
+        void createBoutons();
+        void Jouer();
 };
 
 #endif // IHM_H

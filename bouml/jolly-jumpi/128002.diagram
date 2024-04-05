@@ -1,0 +1,48 @@
+format 224
+
+classcanvas 128042 class_ref 134530 // Joueur
+  simpleclassdiagramsettings end
+  xyz 7 16 2000
+end
+usecasecanvas 128170 usecase_ref 135042 // Gérer le déroulement d'une partie
+  xyzwh 607 33 3005 64 32 label_xy 503 11
+end
+usecasecanvas 128426 usecase_ref 128002 // Lancer une partie
+  xyzwh 531 218 3005 64 32 label_xy 492 250
+end
+usecasecanvas 128554 usecase_ref 135170 // Abandonner une partie
+  xyzwh 865 231 3005 64 32 label_xy 804 263
+end
+usecasecanvas 129194 usecase_ref 134658 // Voir les scores et statistiques
+  xyzwh 698 327 3005 64 32 label_xy 612 359
+end
+usecasecanvas 129322 usecase_ref 134530 // Régler les paramétres d'une partie
+  xyzwh 366 263 3005 64 32 label_xy 258 295
+end
+usecasecanvas 129450 usecase_ref 135426 // Choisir le nombre de joueurs
+  xyzwh 482 426 3005 64 32 label_xy 397 458
+end
+usecasecanvas 129578 usecase_ref 135298 // Choisir le mode de jeu
+  xyzwh 242 425 3005 64 32 label_xy 183 457
+end
+line 128298 ----
+  from ref 128042 z 3006 to ref 128170
+simplerelationcanvas 128682 simplerelation_ref 134570
+  from ref 128170 z 3006 stereotype "<<include>>" xyz 548.5 140.5 3000 to ref 128426
+end
+simplerelationcanvas 128938 simplerelation_ref 134698
+  from ref 128554 z 3006 stereotype "<<extend>>" xyz 719.5 147 3000 to ref 128170
+end
+simplerelationcanvas 129834 simplerelation_ref 134826
+  from ref 129322 z 3006 stereotype "<<extend>>" xyz 466 162.5 3000 to ref 128170
+end
+simplerelationcanvas 129962 simplerelation_ref 134954
+  from ref 129578 z 3006 stereotype "<<extend>>" xyz 284 359 3000 to ref 129322
+end
+simplerelationcanvas 130090 simplerelation_ref 135082
+  from ref 129450 z 3006 stereotype "<<extend>>" xyz 407 359.5 3000 to ref 129322
+end
+simplerelationcanvas 130218 simplerelation_ref 135210
+  from ref 128170 z 3006 stereotype "<<include>>" xyz 632.5 195 3000 to ref 129194
+end
+end
