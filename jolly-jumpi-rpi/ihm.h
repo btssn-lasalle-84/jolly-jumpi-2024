@@ -9,13 +9,15 @@
  */
 
 #include <QtWidgets>
+#include <QVector>
+
+/**
+ * @def NOM_APPLICATION
+ * @brief Le nom de l'application
+ */
+#define NOM_APPLICATION "Jolly Jumpi"
 
 class Partie;
-
-namespace Ui
-{
-    class IHM;
-}
 
 /**
  * @class IHM
@@ -26,19 +28,34 @@ class IHM : public QMainWindow
 {
     Q_OBJECT
 
-    public:
-        explicit IHM(QWidget* parent = nullptr);
-        ~IHM();
+  public:
+    explicit IHM(QWidget* parent = nullptr);
+    ~IHM();
 
-    private:
-        Partie* partie; //!< association vers la classe Quizzy
-        // La GUI
-        Ui::IHM* ui; //!< la GUI de cette classe
-        IHM* lancerPartie();
+  private:
+    Partie*               partie; //!< association vers la classe Quizzy
+    QVector<QPushButton*> boutons;
 
-        void createBaniere();
-        void createBoutons();
-        void Jouer();
+    /**
+     * @enum Bouton
+     * @brief Définit les différentes boutons de l'IHM
+     *
+     */
+    enum Bouton
+    {
+        Jouer = 0,
+        Options,
+        Scores,
+        NbBoutons
+    };
+
+    void creerBanniere();
+    void creerBoutons();
+
+  private slots:
+    void jouer();
+    void reglerParametres();
+    void afficherScores();
 };
 
 #endif // IHM_H

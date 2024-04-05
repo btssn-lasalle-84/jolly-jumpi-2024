@@ -1,7 +1,50 @@
 class IHM
 !!!128151.cpp!!!	IHM(inout parent : QWidget = nullptr)
     qDebug() << Q_FUNC_INFO;
-    ui->setupUi(this);
+    creerBanniere();
+    creerBoutons();
+    showMaximized();
 !!!128279.cpp!!!	~IHM()
-    delete ui;
+    qDebug() << Q_FUNC_INFO;
+!!!134570.cpp!!!	creerBanniere() : void
+    QFrame* banniere = new QFrame(this);
+    banniere->setStyleSheet("background-color: blue; color: white; font-size: 24px;");
+    QLabel* labelBanniere = new QLabel(NOM_APPLICATION, banniere);
+    labelBanniere->setAlignment(Qt::AlignCenter);
+    QHBoxLayout* layoutBanniere = new QHBoxLayout(banniere);
+    layoutBanniere->addWidget(labelBanniere);
+    banniere->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
+    setMenuWidget(banniere);
+!!!134698.cpp!!!	creerBoutons() : void
+    // @warning il n'y a pas de bouton Quitter dans un mode kiosk !
+    QStringList  nomBoutons      = { "Jouer", "Options", "Scores" };
+    QVBoxLayout* layoutPrincipal = new QVBoxLayout;
+    layoutPrincipal->setContentsMargins(0, 0, 0, 0);
+    QVBoxLayout* layoutBoutons = new QVBoxLayout;
+    layoutBoutons->setContentsMargins(150, 5, 150, 5);
+    layoutBoutons->setSpacing(50);
+
+    for(int i = 0; i < nomBoutons.size(); ++i)
+    {
+        QPushButton* bouton = new QPushButton(nomBoutons.at(i), this);
+        bouton->setStyleSheet("font-size: 60px;");
+        boutons.push_back(bouton);
+        layoutBoutons->addWidget(bouton);
+    }
+    layoutPrincipal->addLayout(layoutBoutons);
+
+    connect(boutons[Bouton::Jouer], &QPushButton::clicked, this, &IHM::jouer);
+    connect(boutons[Bouton::Options], &QPushButton::clicked, this, &IHM::reglerParametres);
+    connect(boutons[Bouton::Scores], &QPushButton::clicked, this, &IHM::afficherScores);
+
+    QWidget* centralWidget = new QWidget;
+    centralWidget->setLayout(layoutPrincipal);
+    setCentralWidget(centralWidget);
+!!!134826.cpp!!!	jouer() : void
+    partie = new Partie(this);
+    partie->show();
+    this->hide();
+!!!134954.cpp!!!	reglerParametres() : void
+    qDebug() << Q_FUNC_INFO;
+!!!135082.cpp!!!	afficherScores() : void
     qDebug() << Q_FUNC_INFO;
