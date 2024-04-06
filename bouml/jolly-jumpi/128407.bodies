@@ -1,20 +1,10 @@
-#include "partie.h"
-#include <QMovie>
-#include <QDebug>
-
-Partie::Partie(QWidget* ihm) : QWidget(nullptr), ihm(ihm), imageFond("../images/herbe.gif")
-{
+class Partie
+!!!128919.cpp!!!	Partie(inout ihm : QWidget)
     qDebug() << Q_FUNC_INFO;
     initialiserFenetre();
-}
-
-Partie::~Partie()
-{
+!!!129047.cpp!!!	~Partie()
     qDebug() << Q_FUNC_INFO;
-}
-
-void Partie::initialiserFenetre()
-{
+!!!135210.cpp!!!	initialiserFenetre() : void
     QVBoxLayout* layoutFenetre = new QVBoxLayout();
     layoutFenetre->setContentsMargins(0, 0, 0, 0);
 
@@ -37,11 +27,7 @@ void Partie::initialiserFenetre()
 
     setLayout(layoutFenetre);
     showMaximized();
-}
-
-void Partie::fermerFenetre()
-{
+!!!135338.cpp!!!	fermerFenetre() : void
     ihm->show();
     this->close();
     delete this;
-}

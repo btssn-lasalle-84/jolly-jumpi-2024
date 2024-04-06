@@ -1,10 +1,8 @@
 format 224
 "jolly-jumpi"
-  revision 2
+  revision 3
   modified_by 42 "tv"
   cpp_root_dir "../../"
-
-
   
   // class settings
   default_attribute_visibility private default_relation_visibility private default_operation_visibility public
