@@ -1,9 +1,8 @@
 format 224
 "jolly-jumpi"
+  revision 3
   modified_by 42 "tv"
   cpp_root_dir "../../"
-
-
   
   // class settings
   default_attribute_visibility private default_relation_visibility private default_operation_visibility public
@@ -107,7 +106,7 @@ format 224
       
     end
 
-    usecase 134530 "RÃ©gler les paramÃ©tres d'une partie"
+    usecase 134530 "Régler les paramétres d'une partie"
       
       usecasediagramsettings end
       
@@ -131,7 +130,7 @@ format 224
       simplerelation 134826
 	-_->
 	  stereotype "extend"
-	  on usecase_ref 135042 // GÃ©rer le dÃ©roulement d'une partie
+	  on usecase_ref 135042 // Gérer le déroulement d'une partie
       end
     end
 
@@ -181,7 +180,7 @@ format 224
        end
     end
 
-    usecase 135042 "GÃ©rer le dÃ©roulement d'une partie"
+    usecase 135042 "Gérer le déroulement d'une partie"
       
       usecasediagramsettings end
       
@@ -239,7 +238,7 @@ format 224
       simplerelation 134698
 	-_->
 	  stereotype "extend"
-	  on usecase_ref 135042 // GÃ©rer le dÃ©roulement d'une partie
+	  on usecase_ref 135042 // Gérer le déroulement d'une partie
       end
     end
 
@@ -267,7 +266,7 @@ format 224
       simplerelation 134954
 	-_->
 	  stereotype "extend"
-	  on usecase_ref 134530 // RÃ©gler les paramÃ©tres d'une partie
+	  on usecase_ref 134530 // Régler les paramétres d'une partie
       end
     end
 
@@ -295,7 +294,7 @@ format 224
       simplerelation 135082
 	-_->
 	  stereotype "extend"
-	  on usecase_ref 134530 // RÃ©gler les paramÃ©tres d'une partie
+	  on usecase_ref 134530 // Régler les paramétres d'une partie
       end
     end
   end
