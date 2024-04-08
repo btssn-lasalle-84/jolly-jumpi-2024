@@ -22,6 +22,7 @@ Le système Jolly-JumPi est un système numérique permettant de jouer au tierc�
 
 ## Fonctionnalités
 
+![uc](images/uc.png)
 
 ## Documentation du code
 
@@ -29,15 +30,20 @@ https://btssn-lasalle-84.github.io/jolly-jumpi-2024/
 
 ## Diagramme de classes
 
+![cd](images/classes-v0.1.png)
 
 ## Protocole
 
 
 ## Screenshots
 
+![screenshot-accueil-v0.1](images/screenshot-accueil-v0.1.png)
+
+![screenshot-partie-v0.1](images/screenshot-partie-v0.1.png)
 
 ## Historique des versions
 
+![jira-v0.1](images/jira-v0.1.png)
 
 ## Auteurs
 
