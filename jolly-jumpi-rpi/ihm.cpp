@@ -22,12 +22,38 @@ IHM::IHM(QWidget* parent) : QMainWindow(parent), partie(nullptr)
     qDebug() << Q_FUNC_INFO;
     creerBanniere();
     creerBoutons();
+
+    stackedWidget = new QStackedWidget(this);
+    partie = new Partie;
+    options = new Options;
+    score = new Score;
+
+    stackedWidget->addWidget(partie);
+    stackedWidget->addWidget(options);
+    stackedWidget->addWidget(score);
+    setCentralWidget(stackedWidget);
+
     showMaximized();
 }
 
 IHM::~IHM()
 {
     qDebug() << Q_FUNC_INFO;
+}
+
+void IHM::jouer()
+{
+    stackedWidget->setCurrentWidget(partie);
+}
+
+void IHM::reglerParametres()
+{
+    stackedWidget->setCurrentWidget(options);
+}
+
+void IHM::afficherScores()
+{
+    stackedWidget->setCurrentWidget(score);
 }
 
 void IHM::creerBanniere()
@@ -58,6 +84,23 @@ void IHM::creerBoutons()
         bouton->setStyleSheet("font-size: 60px;");
         boutons.push_back(bouton);
         layoutBoutons->addWidget(bouton);
+
+        connect(boutons[i], &QPushButton::clicked, [this, i](){
+                    switch (i)
+                    {
+                        case Jouer:
+                            jouer();
+                            break;
+                        case Options:
+                            reglerParametres();
+                            break;
+                        case Scores:
+                            afficherScores();
+                            break;
+                        default:
+                            break;
+                    }
+        });
     }
     layoutPrincipal->addLayout(layoutBoutons);
 
@@ -68,21 +111,4 @@ void IHM::creerBoutons()
     QWidget* centralWidget = new QWidget;
     centralWidget->setLayout(layoutPrincipal);
     setCentralWidget(centralWidget);
-}
-
-void IHM::jouer()
-{
-    partie = new Partie(this);
-    partie->show();
-    this->hide();
-}
-
-void IHM::reglerParametres()
-{
-    qDebug() << Q_FUNC_INFO;
-}
-
-void IHM::afficherScores()
-{
-    qDebug() << Q_FUNC_INFO;
 }

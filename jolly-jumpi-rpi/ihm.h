@@ -8,6 +8,7 @@
  * @version 0.1
  */
 
+#include <QStackedWidget>
 #include <QtWidgets>
 #include <QVector>
 
@@ -15,15 +16,19 @@
  * @def NOM_APPLICATION
  * @brief Le nom de l'application
  */
+
 #define NOM_APPLICATION "Jolly Jumpi"
 
 class Partie;
+class Options;
+class Score;
 
 /**
  * @class IHM
  * @brief Déclaration de la classe IHM
  * @details Cette classe gère l'affichage sur l'écran de la Raspberry Pi
  */
+
 class IHM : public QMainWindow
 {
     Q_OBJECT
@@ -33,22 +38,26 @@ class IHM : public QMainWindow
     ~IHM();
 
   private:
-    Partie*               partie; //!< association vers la classe Quizzy
+
+    enum Bouton
+    {
+        Jouer = 0,
+        Options,
+        Score,
+        NbBoutons
+    };
+
+    Partie *partie;
+    Options *options;
+    Score *score;
     QVector<QPushButton*> boutons;
+    QStackedWidget* stackedWidget;
 
     /**
      * @enum Bouton
      * @brief Définit les différentes boutons de l'IHM
      *
      */
-    enum Bouton
-    {
-        Jouer = 0,
-        Options,
-        Scores,
-        NbBoutons
-    };
-
     void creerBanniere();
     void creerBoutons();
 
