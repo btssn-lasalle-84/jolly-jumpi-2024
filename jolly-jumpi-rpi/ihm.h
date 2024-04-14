@@ -8,7 +8,6 @@
  * @version 0.1
  */
 
-#include <QStackedWidget>
 #include <QtWidgets>
 #include <QVector>
 
@@ -16,7 +15,6 @@
  * @def NOM_APPLICATION
  * @brief Le nom de l'application
  */
-
 #define NOM_APPLICATION "Jolly Jumpi"
 
 class Partie;
@@ -37,31 +35,39 @@ class IHM : public QMainWindow
     explicit IHM(QWidget* parent = nullptr);
     ~IHM();
 
-  private:
-
-    enum Bouton
-    {
-        Jouer = 0,
-        Options,
-        Score,
-        NbBoutons
-    };
-
-    Partie *partie;
-    Options *options;
-    Score *score;
-    QVector<QPushButton*> boutons;
-    QStackedWidget* stackedWidget;
-
     /**
      * @enum Bouton
      * @brief Définit les différentes boutons de l'IHM
      *
      */
+    enum Bouton
+    {
+        Accueil = -1,
+        B_Jouer,
+        B_Options,
+        B_Score,
+        NbBoutons
+    };
+
+  private:
+    Partie*               partie;
+    Options*              options;
+    Score*                score;
+    QWidget*              ecranPrincipal;
+    QVBoxLayout*          layoutPrincipal;
+    QStackedWidget*       ecrans;
+    QWidget*              accueil;
+    QVBoxLayout*          layoutAccueil;
+    QVector<QPushButton*> boutons;
+    Bouton                choixBouton;
+
+    void creerEcrans();
     void creerBanniere();
     void creerBoutons();
+    void creerNavigation();
 
   private slots:
+    void afficherAccueil();
     void jouer();
     void reglerParametres();
     void afficherScores();

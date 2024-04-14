@@ -2,10 +2,10 @@
 #include <QMovie>
 #include <QDebug>
 
-Partie::Partie(QWidget* ihm) : QWidget(nullptr), ihm(ihm), imageFond("../images/herbe.gif")
+Partie::Partie(QWidget* parent) : QWidget(parent), imageFond("../images/herbe.gif")
 {
     qDebug() << Q_FUNC_INFO;
-    initialiserFenetre();
+    initialiserEcran();
 }
 
 Partie::~Partie()
@@ -13,7 +13,7 @@ Partie::~Partie()
     qDebug() << Q_FUNC_INFO;
 }
 
-void Partie::initialiserFenetre()
+void Partie::initialiserEcran()
 {
     QVBoxLayout* layoutFenetre = new QVBoxLayout();
     layoutFenetre->setContentsMargins(0, 0, 0, 0);
@@ -32,16 +32,14 @@ void Partie::initialiserFenetre()
     QPushButton* bouton = new QPushButton("Abandonner", this);
     bouton->setStyleSheet("font-size: 60px;");
     layoutBoutons->addWidget(bouton);
-    connect(bouton, &QPushButton::clicked, this, &Partie::fermerFenetre);
+    connect(bouton, &QPushButton::clicked, this, &Partie::fermerEcran);
     layoutFenetre->addLayout(layoutBoutons);
 
     setLayout(layoutFenetre);
     showMaximized();
 }
 
-void Partie::fermerFenetre()
+void Partie::fermerEcran()
 {
-    ihm->show();
-    this->close();
-    delete this;
+    emit fermetureEcran("Partie");
 }

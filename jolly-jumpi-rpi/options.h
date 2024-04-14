@@ -1,21 +1,24 @@
 #ifndef OPTIONS_H
 #define OPTIONS_H
 
-#include <QWidget>
+#include <QtWidgets>
 
 class Options : public QWidget
 {
     Q_OBJECT
 
-    public:
-        explicit Options(QWidget *parent = nullptr);
-        ~Options();
+  public:
+    explicit Options(QWidget* parent = nullptr);
+    ~Options();
 
-    private slots:
-        void abandonner();
+  private slots:
+    void abandonner();
 
-    private:
+  private:
+    void initialiserEcran();
 
+  signals:
+    void abandon(QString nomEcran);
 };
 
 #endif // OPTIONS_H

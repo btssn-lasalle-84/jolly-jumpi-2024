@@ -7,17 +7,19 @@ class Partie : public QWidget
 {
     Q_OBJECT
 
-    public:
-        explicit Partie(QWidget* ihm);
-        ~Partie();
+  public:
+    explicit Partie(QWidget* parent);
+    ~Partie();
 
-    private slots:
-        void fermerFenetre();
+  private slots:
+    void fermerEcran();
 
-    private:
-        QWidget* ihm;
-        QString  imageFond;
-        void     initialiserFenetre();
+  private:
+    QString imageFond;
+    void    initialiserEcran();
+
+  signals:
+    void fermetureEcran(QString nomEcran);
 };
 
 #endif // PARTIE_H
