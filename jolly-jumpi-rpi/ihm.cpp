@@ -1,5 +1,7 @@
 #include "ihm.h"
 #include "partie.h"
+#include "options.h"
+#include "score.h"
 #include <QDebug>
 
 /**
@@ -17,17 +19,72 @@
  * fenêtre principale de l'application
  */
 
-IHM::IHM(QWidget* parent) : QMainWindow(parent), partie(nullptr)
+IHM::IHM(QWidget* parent) :
+    QMainWindow(parent), partie(new Partie(this)), options(new Options(this)),
+    score(new Score(this)), choixBouton(Bouton::B_Jouer)
 {
     qDebug() << Q_FUNC_INFO;
+
+    creerEcrans();
     creerBanniere();
     creerBoutons();
+    creerNavigation();
+
     showMaximized();
 }
 
 IHM::~IHM()
 {
     qDebug() << Q_FUNC_INFO;
+}
+
+void IHM::afficherAccueil()
+{
+    qDebug() << Q_FUNC_INFO;
+    ecrans->setCurrentWidget(accueil);
+}
+
+void IHM::jouer()
+{
+    qDebug() << Q_FUNC_INFO;
+    ecrans->setCurrentWidget(partie);
+}
+
+void IHM::reglerParametres()
+{
+    qDebug() << Q_FUNC_INFO;
+    ecrans->setCurrentWidget(options);
+}
+
+void IHM::afficherScores()
+{
+    qDebug() << Q_FUNC_INFO;
+    ecrans->setCurrentWidget(score);
+}
+
+void IHM::creerEcrans()
+{
+    qDebug() << Q_FUNC_INFO;
+    ecranPrincipal  = new QWidget;
+    layoutPrincipal = new QVBoxLayout;
+    ecranPrincipal->setLayout(layoutPrincipal);
+    setCentralWidget(ecranPrincipal);
+
+    // les écrans
+    ecrans = new QStackedWidget(this);
+
+    // écran d'accueil
+    accueil       = new QWidget;
+    layoutAccueil = new QVBoxLayout;
+    accueil->setLayout(layoutAccueil);
+
+    // les autes écrans
+    ecrans->addWidget(accueil);
+    ecrans->addWidget(partie);
+    ecrans->addWidget(options);
+    ecrans->addWidget(score);
+
+    layoutPrincipal->addWidget(ecrans);
 }
 
 void IHM::creerBanniere()
@@ -44,10 +101,9 @@ void IHM::creerBanniere()
 
 void IHM::creerBoutons()
 {
-    // @warning il n'y a pas de bouton Quitter dans un mode kiosk !
-    QStringList  nomBoutons      = { "Jouer", "Options", "Scores" };
-    QVBoxLayout* layoutPrincipal = new QVBoxLayout;
-    layoutPrincipal->setContentsMargins(0, 0, 0, 0);
+    QStringList nomBoutons = { "Jouer", "Options", "Scores" };
+
+    layoutAccueil->setContentsMargins(0, 0, 0, 0);
     QVBoxLayout* layoutBoutons = new QVBoxLayout;
     layoutBoutons->setContentsMargins(150, 5, 150, 5);
     layoutBoutons->setSpacing(50);
@@ -58,31 +114,34 @@ void IHM::creerBoutons()
         bouton->setStyleSheet("font-size: 60px;");
         boutons.push_back(bouton);
         layoutBoutons->addWidget(bouton);
+
+        connect(boutons[i],
+                &QPushButton::clicked,
+                [this, i]()
+                {
+                    switch(i)
+                    {
+                        case B_Jouer:
+                            jouer();
+                            break;
+                        case B_Options:
+                            reglerParametres();
+                            break;
+                        case B_Score:
+                            afficherScores();
+                            break;
+                        default:
+                            break;
+                    }
+                });
     }
-    layoutPrincipal->addLayout(layoutBoutons);
-
-    connect(boutons[Bouton::Jouer], &QPushButton::clicked, this, &IHM::jouer);
-    connect(boutons[Bouton::Options], &QPushButton::clicked, this, &IHM::reglerParametres);
-    connect(boutons[Bouton::Scores], &QPushButton::clicked, this, &IHM::afficherScores);
-
-    QWidget* centralWidget = new QWidget;
-    centralWidget->setLayout(layoutPrincipal);
-    setCentralWidget(centralWidget);
+    layoutAccueil->addLayout(layoutBoutons);
 }
 
-void IHM::jouer()
+void IHM::creerNavigation()
 {
-    partie = new Partie(this);
-    partie->show();
-    this->hide();
-}
-
-void IHM::reglerParametres()
-{
-    qDebug() << Q_FUNC_INFO;
-}
-
-void IHM::afficherScores()
-{
-    qDebug() << Q_FUNC_INFO;
+    // Retour à l'écran d'accueil
+    connect(partie, &Partie::fermetureEcran, this, &IHM::afficherAccueil);
+    connect(options, &Options::abandon, this, &IHM::afficherAccueil);
+    connect(score, &Score::abandon, this, &IHM::afficherAccueil);
 }
