@@ -2,21 +2,21 @@
 #define PARTIE_H
 
 #include <QtWidgets>
+#include <QLabel>
 
 class Partie : public QWidget
 {
     Q_OBJECT
 
   public:
-    explicit Partie(QWidget* parent);
+    explicit Partie(QWidget *parent = nullptr);
     ~Partie();
 
   private slots:
     void fermerEcran();
 
   private:
-    QString imageFond;
-    void    initialiserEcran();
+
 
   signals:
     void fermetureEcran(QString nomEcran);

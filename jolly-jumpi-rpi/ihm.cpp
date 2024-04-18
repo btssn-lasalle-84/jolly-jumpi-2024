@@ -99,6 +99,15 @@ void IHM::creerBanniere()
     setMenuWidget(banniere);
 }
 
+void IHM::gererAffichageBanniere()
+{
+    if (ecrans->currentWidget() == accueil) {
+        menuWidget()->show(); // Afficher la bannière
+    } else {
+        menuWidget()->hide(); // Cacher la bannière
+    }
+}
+
 void IHM::creerBoutons()
 {
     QStringList nomBoutons = { "Jouer", "Options", "Scores" };
@@ -144,4 +153,6 @@ void IHM::creerNavigation()
     connect(partie, &Partie::fermetureEcran, this, &IHM::afficherAccueil);
     connect(options, &Options::abandon, this, &IHM::afficherAccueil);
     connect(score, &Score::abandon, this, &IHM::afficherAccueil);
+
+    connect(ecrans, &QStackedWidget::currentChanged, this, &IHM::gererAffichageBanniere);
 }

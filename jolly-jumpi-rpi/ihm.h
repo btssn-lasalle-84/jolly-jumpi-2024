@@ -71,6 +71,7 @@ class IHM : public QMainWindow
     void jouer();
     void reglerParametres();
     void afficherScores();
+    void gererAffichageBanniere();
 };
 
 #endif // IHM_H
