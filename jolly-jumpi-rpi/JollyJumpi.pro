@@ -27,5 +27,8 @@ FORMS += \
 
 CONFIG(release, debug|release):DEFINES+=QT_NO_DEBUG_OUTPUT
 
+RESOURCES += \
+    JollyJumpi.qrc
+
 DISTFILES += \
-    partie.qss
+    JollyJumpi.qss

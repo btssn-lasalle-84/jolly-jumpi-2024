@@ -1,13 +1,7 @@
-Partie {
-    background-image: url("../images/herbe.gif");
-    background-repeat: repeat;
-    background-position: center;
-}
-
 QPushButton#abandonnerButton {
     background-color: #ff0000; /* Rouge */
     color: #ffffff; /* Blanc */
-    font-size: 20px;
+    font-size: 60px;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;

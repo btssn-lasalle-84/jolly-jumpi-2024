@@ -24,6 +24,7 @@ IHM::IHM(QWidget* parent) :
     score(new Score(this)), choixBouton(Bouton::B_Jouer)
 {
     qDebug() << Q_FUNC_INFO;
+    qDebug() << qApp->primaryScreen()->availableGeometry();
 
     creerEcrans();
     creerBanniere();
@@ -101,9 +102,12 @@ void IHM::creerBanniere()
 
 void IHM::gererAffichageBanniere()
 {
-    if (ecrans->currentWidget() == accueil) {
+    if(ecrans->currentWidget() == accueil)
+    {
         menuWidget()->show(); // Afficher la bannière
-    } else {
+    }
+    else
+    {
         menuWidget()->hide(); // Cacher la bannière
     }
 }
