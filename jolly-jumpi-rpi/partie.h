@@ -18,6 +18,8 @@
 
 #define TAILLE_CHEVAL 256
 
+#define SIMULATION_CLAVIER
+
 class Partie : public QWidget
 {
     Q_OBJECT
@@ -26,17 +28,31 @@ class Partie : public QWidget
     explicit Partie(QWidget* parent = nullptr);
     ~Partie();
 
+    void initialiser();
+
   private slots:
     void fermerEcran();
+#ifdef SIMULATION_CLAVIER
+    void simulerAvancementCheval();
+    void selectionnerChevalPrecedent();
+    void selectionnerChevalSuivant();
+#endif
 
   private:
     QGridLayout*      hippodrome;
     QVector<QLabel*>  pistes;
     QVector<QPixmap*> imagesCheval;
+    QVector<int>      positionsChevaux;
+#ifdef SIMULATION_CLAVIER
+    int numeroChevalSelectionne;
+#endif
 
     void initialiserEcran();
     void afficherCheval(int numero, int position);
-
+#ifdef SIMULATION_CLAVIER
+    void installerModeSimulationClavier();
+    void initialiserPositionsChevaux();
+#endif
   signals:
     void fermetureEcran(QString nomEcran);
 };

@@ -7,11 +7,28 @@ Partie::Partie(QWidget* parent) : QWidget(parent)
     qDebug() << Q_FUNC_INFO;
 
     initialiserEcran();
+#ifdef SIMULATION_CLAVIER
+    numeroChevalSelectionne = 0;
+    for(int i = 0; i < NB_CHEVAUX_DEFAUT; i++)
+    {
+        positionsChevaux.push_back(0);
+    }
+    initialiserPositionsChevaux();
+    installerModeSimulationClavier();
+#endif
 }
 
 Partie::~Partie()
 {
     qDebug() << Q_FUNC_INFO;
+}
+
+void Partie::initialiser()
+{
+#ifdef SIMULATION_CLAVIER
+    numeroChevalSelectionne = 0;
+    initialiserPositionsChevaux();
+#endif
 }
 
 void Partie::initialiserEcran()
@@ -57,6 +74,7 @@ void Partie::initialiserEcran()
 
 void Partie::afficherCheval(int numero, int position)
 {
+    qDebug() << Q_FUNC_INFO << "numero" << numero << "position" << position;
     // on récupère l'image du cheval
     QImage cheval("../images/cheval" + QString::number(numero + 1) + ".png");
     // on récupère la piste du cheval
@@ -73,3 +91,58 @@ void Partie::fermerEcran()
 {
     emit fermetureEcran("Partie");
 }
+
+#ifdef SIMULATION_CLAVIER
+void Partie::installerModeSimulationClavier()
+{
+    qDebug() << Q_FUNC_INFO;
+    QAction* avancerCheval = new QAction(this);
+    avancerCheval->setShortcut(QKeySequence(Qt::Key_Right));
+    addAction(avancerCheval);
+    connect(avancerCheval, SIGNAL(triggered()), this, SLOT(simulerAvancementCheval()));
+
+    QAction* simulerSelectionPrecedent = new QAction(this);
+    simulerSelectionPrecedent->setShortcut(QKeySequence(Qt::Key_Up));
+    addAction(simulerSelectionPrecedent);
+    connect(simulerSelectionPrecedent,
+            SIGNAL(triggered()),
+            this,
+            SLOT(selectionnerChevalPrecedent()));
+
+    QAction* simulerSelectionSuivant = new QAction(this);
+    simulerSelectionSuivant->setShortcut(QKeySequence(Qt::Key_Down));
+    addAction(simulerSelectionSuivant);
+    connect(simulerSelectionSuivant, SIGNAL(triggered()), this, SLOT(selectionnerChevalSuivant()));
+}
+
+void Partie::initialiserPositionsChevaux()
+{
+    for(int i = 0; i < NB_CHEVAUX_DEFAUT; i++)
+    {
+        positionsChevaux[i] = 0;
+        afficherCheval(i, positionsChevaux[i]);
+    }
+}
+
+void Partie::simulerAvancementCheval()
+{
+    positionsChevaux[numeroChevalSelectionne]++;
+    if(positionsChevaux[numeroChevalSelectionne] < LONGUEUR_COURSE_DEFAUT)
+        afficherCheval(numeroChevalSelectionne, positionsChevaux[numeroChevalSelectionne]);
+}
+
+void Partie::selectionnerChevalPrecedent()
+{
+    --numeroChevalSelectionne;
+    if(numeroChevalSelectionne < 0)
+        numeroChevalSelectionne = NB_CHEVAUX_DEFAUT - 1;
+}
+
+void Partie::selectionnerChevalSuivant()
+{
+    ++numeroChevalSelectionne;
+    if(numeroChevalSelectionne >= NB_CHEVAUX_DEFAUT)
+        numeroChevalSelectionne = 0;
+}
+
+#endif

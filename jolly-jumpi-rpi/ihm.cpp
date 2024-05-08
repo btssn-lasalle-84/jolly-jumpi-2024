@@ -48,6 +48,7 @@ void IHM::afficherAccueil()
 void IHM::jouer()
 {
     qDebug() << Q_FUNC_INFO;
+    partie->initialiser();
     ecrans->setCurrentWidget(partie);
 }
 
