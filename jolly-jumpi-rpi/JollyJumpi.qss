@@ -1,0 +1,16 @@
+QPushButton#abandonnerButton {
+    background-color: #ff0000; /* Rouge */
+    color: #ffffff; /* Blanc */
+    font-size: 60px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+QPushButton#abandonnerButton:hover {
+    background-color: #cc0000;
+}
+
+QPushButton#abandonnerButton:pressed {
+    background-color: #990000;
+}

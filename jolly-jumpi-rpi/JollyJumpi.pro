@@ -26,3 +26,9 @@ FORMS += \
     ihm.ui
 
 CONFIG(release, debug|release):DEFINES+=QT_NO_DEBUG_OUTPUT
+
+RESOURCES += \
+    JollyJumpi.qrc
+
+DISTFILES += \
+    JollyJumpi.qss
