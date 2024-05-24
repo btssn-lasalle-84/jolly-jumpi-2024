@@ -1,0 +1,16 @@
+class Score
+!!!129175.cpp!!!	Score(inout parent : QWidget = nullptr)
+    qDebug() << Q_FUNC_INFO;
+    initialiserEcran();
+!!!129303.cpp!!!	~Score()
+    qDebug() << Q_FUNC_INFO;
+!!!144042.cpp!!!	abandonner() : void
+    emit abandon("Score");
+!!!144170.cpp!!!	initialiserEcran() : void
+    QVBoxLayout* layout           = new QVBoxLayout(this);
+    QPushButton* abandonnerButton = new QPushButton("Abandonner", this);
+    connect(abandonnerButton, &QPushButton::clicked, this, &Score::abandonner);
+    abandonnerButton->setStyleSheet("font-size: 30px;");
+    layout->setAlignment(Qt::AlignCenter);
+    abandonnerButton->setFixedSize(200, 50);
+    layout->addWidget(abandonnerButton);

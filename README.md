@@ -30,18 +30,27 @@ https://btssn-lasalle-84.github.io/jolly-jumpi-2024/
 
 ## Diagramme de classes
 
-![cd](images/classes-v0.1.png)
+![classes-v0.2](images/classes-v0.2.png)
 
 ## Protocole
 
+![protocole-table-ecran](images/protocole-table-ecran.png)
+
+![protocole-ecran-table](images/protocole-ecran-table.png)
+
+![identification-trou](images/identification-trou.png)
 
 ## Screenshots
 
-![screenshot-accueil-v0.1](images/screenshot-accueil-v0.1.png)
-
-![screenshot-partie-v0.1](images/screenshot-partie-v0.1.png)
+![screenshot-partie-v0.2](images/screenshot-partie-v0.2.png)
 
 ## Historique des versions
+
+- Version 0.2
+
+![jira-v0.2](images/jira-v0.2.png)
+
+- Version 0.1
 
 ![jira-v0.1](images/jira-v0.1.png)
 

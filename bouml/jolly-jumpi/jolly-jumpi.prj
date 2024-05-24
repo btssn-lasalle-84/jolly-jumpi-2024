@@ -1,8 +1,10 @@
 format 224
 "jolly-jumpi"
-  revision 3
+  revision 4
   modified_by 42 "tv"
   cpp_root_dir "../../"
+
+
   
   // class settings
   default_attribute_visibility private default_relation_visibility private default_operation_visibility public
@@ -67,7 +69,7 @@ format 224
     activitydiagramsettings
      end
     usecasediagram 128002 "Diagramme"
-      usecasediagramsettings end
+      usecasediagramsettings draw_all_relations no end
       size A0
     end
 
@@ -92,6 +94,11 @@ format 224
       
       activitydiagramsettings
        end
+      simplerelation 141738
+	-_->
+	  stereotype "include"
+	  on usecase_ref 135042 // Gérer le déroulement d'une partie
+      end
     end
 
     class 134530 "Joueur"
@@ -239,6 +246,12 @@ format 224
 	-_->
 	  stereotype "extend"
 	  on usecase_ref 135042 // Gérer le déroulement d'une partie
+      end
+
+      simplerelation 141866
+	-_->
+	  stereotype "extend"
+	  on usecase_ref 128002 // Lancer une partie
       end
     end
 
