@@ -9,20 +9,26 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     ihm.cpp \
-    joueur.cpp \
-    main.cpp \
     options.cpp \
     partie.cpp \
-    score.cpp
+    score.cpp \
+    joueur.cpp \
+    main.cpp
 
 HEADERS += \
-    ihm.h \
-    joueur.h \
+    ihm.h \    
     options.h \
     partie.h \
-    score.h
+    score.h \
+    joueur.h
 
 FORMS += \
     ihm.ui
 
 CONFIG(release, debug|release):DEFINES+=QT_NO_DEBUG_OUTPUT
+
+RESOURCES += \
+    JollyJumpi.qrc
+
+DISTFILES += \
+    JollyJumpi.qss

@@ -5,7 +5,7 @@
  * @file ihm.h
  * @brief Déclaration de la classe IHM
  * @author ARMANDO Célian
- * @version 0.1
+ * @version 0.2
  */
 
 #include <QtWidgets>
@@ -18,12 +18,15 @@
 #define NOM_APPLICATION "Jolly Jumpi"
 
 class Partie;
+class Options;
+class Score;
 
 /**
  * @class IHM
  * @brief Déclaration de la classe IHM
  * @details Cette classe gère l'affichage sur l'écran de la Raspberry Pi
  */
+
 class IHM : public QMainWindow
 {
     Q_OBJECT
@@ -32,10 +35,6 @@ class IHM : public QMainWindow
     explicit IHM(QWidget* parent = nullptr);
     ~IHM();
 
-  private:
-    Partie*               partie; //!< association vers la classe Quizzy
-    QVector<QPushButton*> boutons;
-
     /**
      * @enum Bouton
      * @brief Définit les différentes boutons de l'IHM
@@ -43,19 +42,36 @@ class IHM : public QMainWindow
      */
     enum Bouton
     {
-        Jouer = 0,
-        Options,
-        Scores,
+        Accueil = -1,
+        B_Jouer,
+        B_Options,
+        B_Score,
         NbBoutons
     };
 
+  private:
+    Partie*               partie;
+    Options*              options;
+    Score*                score;
+    QWidget*              ecranPrincipal;
+    QVBoxLayout*          layoutPrincipal;
+    QStackedWidget*       ecrans;
+    QWidget*              accueil;
+    QVBoxLayout*          layoutAccueil;
+    QVector<QPushButton*> boutons;
+    Bouton                choixBouton;
+
+    void creerEcrans();
     void creerBanniere();
     void creerBoutons();
+    void creerNavigation();
 
   private slots:
+    void afficherAccueil();
     void jouer();
     void reglerParametres();
     void afficherScores();
+    void gererAffichageBanniere();
 };
 
 #endif // IHM_H

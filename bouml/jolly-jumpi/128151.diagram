@@ -2,11 +2,11 @@ format 224
 
 classcanvas 128023 class_ref 128151 // IHM
   classdiagramsettings member_max_width 0 end
-  xyz 277 10 2000
+  xyz 608 10 2000
 end
 classcanvas 128151 class_ref 128407 // Partie
   classdiagramsettings member_max_width 0 end
-  xyz 325 363 3005
+  xyz 120 572 3005
 end
 classcanvas 128407 class_ref 128535 // Joueur
   classdiagramsettings member_max_width 0 end
@@ -14,15 +14,25 @@ classcanvas 128407 class_ref 128535 // Joueur
 end
 classcanvas 128535 class_ref 128663 // Options
   classdiagramsettings member_max_width 0 end
-  xyz 608 363 2000
+  xyz 994 572 2000
 end
 classcanvas 128663 class_ref 128919 // Score
   classdiagramsettings member_max_width 0 end
-  xyz 759 363 2000
+  xyz 609 572 2000
+end
+relationcanvas 128042 relation_ref 141098 // <unidirectional association>
+  from ref 128023 z 2001 to ref 128535
+  role_a_pos 1112 546 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 128170 relation_ref 141226 // <unidirectional association>
+  from ref 128023 z 2001 to ref 128663
+  role_a_pos 792 546 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 128279 relation_ref 128279 // <unidirectional association>
   from ref 128023 z 3006 to ref 128151
-  role_a_pos 461 337 3000 no_role_b
+  role_a_pos 510 546 3000 no_role_b
   no_multiplicity_a no_multiplicity_b
 end
 end
