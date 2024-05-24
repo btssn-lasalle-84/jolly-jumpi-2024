@@ -8,7 +8,7 @@
  * @file ihm.cpp
  * @brief Définition de la classe IHM
  * @author ARMANDO Célian
- * @version 0.1
+ * @version 0.2
  */
 
 /**
