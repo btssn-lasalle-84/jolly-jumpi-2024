@@ -2,6 +2,7 @@
 #include "partie.h"
 #include "options.h"
 #include "score.h"
+#include "bluetooth.h"
 #include <QDebug>
 
 /**
@@ -24,14 +25,27 @@ IHM::IHM(QWidget* parent) :
     score(new Score(this)), choixBouton(Bouton::B_Jouer)
 {
     qDebug() << Q_FUNC_INFO;
-    qDebug() << qApp->primaryScreen()->availableGeometry();
 
+    // Obtenir les dimensions de l'écran disponible
+    QRect screenGeometry = qApp->primaryScreen()->availableGeometry();
+    qDebug() << "Screen Geometry:" << screenGeometry;
+
+    // Initialisation de la connection Bluetooth
+    bluetooth = new Bluetooth(this);
+    bluetooth->initialiserCommunication();
+
+    // Définir la taille de la fenêtre pour qu'elle s'ajuste à l'écran
+    resize(screenGeometry.width(), screenGeometry.height());
+    setFixedSize(screenGeometry.width(), screenGeometry.height());
+
+    // Appels aux fonctions pour créer l'interface utilisateur
     creerEcrans();
     creerBanniere();
     creerBoutons();
     creerNavigation();
 
-    showMaximized();
+    // Afficher la fenêtre
+    show();
 }
 
 IHM::~IHM()
