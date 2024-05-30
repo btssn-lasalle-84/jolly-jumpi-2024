@@ -30,10 +30,6 @@ IHM::IHM(QWidget* parent) :
     QRect screenGeometry = qApp->primaryScreen()->availableGeometry();
     qDebug() << "Screen Geometry:" << screenGeometry;
 
-    // Initialisation de la connection Bluetooth
-    bluetooth = new Bluetooth(this);
-    bluetooth->initialiserCommunication();
-
     // Définir la taille de la fenêtre pour qu'elle s'ajuste à l'écran
     resize(screenGeometry.width(), screenGeometry.height());
     setFixedSize(screenGeometry.width(), screenGeometry.height());

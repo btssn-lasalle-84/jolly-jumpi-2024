@@ -1,32 +1,44 @@
 #ifndef BLUETOOTH_H
 #define BLUETOOTH_H
 
+#include <QObject>
+#include <QBluetoothSocket>
+#include <QBluetoothDeviceDiscoveryAgent>
+#include <QBluetoothServiceInfo>
+#include <QBluetoothUuid>
+#include <QBluetoothDeviceInfo>
 #include <QString>
 
-#define ENTETE_TRAME     QString("$JJP")
-#define FIN_TRAME        QString("\n")
-#define DELIMITEUR_TRAME QString(",")
-
-#define ABANDONER    'A'
-#define VALIDER      'V'
-#define DROITE       'D'
-#define GAUCHE       'G'
-#define FIN          'F'
-#define ACQUITTEMENT 'ACK'
-
-class partie;
-class ihm;
-
-class bluetooth
+class Bluetooth : public QObject
 {
     Q_OBJECT
 
-    private:
-        ihm*    ihm;
-        Partie* partie;
-    public:
-        bluetooth(ihm* ihm);
-        ~bluetooth();
+public:
+    explicit Bluetooth(QObject* parent = nullptr);
+    ~Bluetooth();
+
+    void initialiserCommunication();
+    void envoyerTrame(const QString &trame);
+    bool getAbandon() const;
+    void setAbandon(bool abandon);
+
+signals:
+    void deconnecte();
+
+private slots:
+    void reconnaitrePeripherique(QBluetoothDeviceInfo peripherique);
+    void estConnecte();
+    void estDeconnecte();
+    void trameRecue();
+
+private:
+    void lireTrame();
+    bool traiterTrame(QString trame);
+
+    QBluetoothSocket* socket;
+    QBluetoothDeviceDiscoveryAgent* agentDecouverteBluetooth;
+    QBluetoothDeviceInfo peripheriqueDistant;
+    bool abandon;
 };
 
 #endif // BLUETOOTH_H
