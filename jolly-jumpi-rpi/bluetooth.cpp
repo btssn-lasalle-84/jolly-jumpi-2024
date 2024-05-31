@@ -1,88 +1,122 @@
 #include "bluetooth.h"
-#include "partie.h"
-#include "ihm.h"
-
-#define ADRESSE_ESP32_SIMULATEUR "08:3a:f2:a8:e3:c2"
-#define NOM_ESP32_SIMULATEUR     QString("jolly-jumpi-1")
+#include <QDebug>
 
 Bluetooth::Bluetooth(QObject* parent) :
-    QObject(parent),
-    socket(new QBluetoothSocket(QBluetoothServiceInfo::RfcommProtocol)),
-    agentDecouverteBluetooth(new QBluetoothDeviceDiscoveryAgent),
-    abandon(false)
+    QObject(parent), socket(nullptr),
+    agentDecouverteBluetooth(new QBluetoothDeviceDiscoveryAgent(this))
 {
-    connect(socket, &QBluetoothSocket::connected, this, &Bluetooth::estConnecte);
-    connect(socket, &QBluetoothSocket::disconnected, this, &Bluetooth::estDeconnecte);
-    connect(socket, &QBluetoothSocket::readyRead, this, &Bluetooth::trameRecue);
-    connect(agentDecouverteBluetooth, &QBluetoothDeviceDiscoveryAgent::deviceDiscovered, this, &Bluetooth::reconnaitrePeripherique);
 }
 
 Bluetooth::~Bluetooth()
 {
-    delete socket;
-    delete agentDecouverteBluetooth;
+    if(socket != nullptr && socket->state() == QBluetoothSocket::ConnectedState)
+    {
+        deconnecter();
+    }
 }
 
 void Bluetooth::initialiserCommunication()
 {
+    // Bluetooth activé ?
+    if(!peripheriqueLocal.isValid())
+        return;
+
+    connect(agentDecouverteBluetooth,
+            &QBluetoothDeviceDiscoveryAgent::deviceDiscovered,
+            this,
+            &Bluetooth::rechercherPeripherique);
+    connect(agentDecouverteBluetooth,
+            &QBluetoothDeviceDiscoveryAgent::finished,
+            this,
+            &Bluetooth::terminerRecherchePeripherique);
+    agentDecouverteBluetooth->start();
 }
 
-void Bluetooth::envoyerTrame(const QString &trame)
+void Bluetooth::envoyerTrame(const QString& trame)
 {
-    if (socket->state() == QBluetoothSocket::ConnectedState)
+    if(socket != nullptr && socket->state() == QBluetoothSocket::ConnectedState)
     {
-        socket->write(trame.toUtf8());
+        socket->write(trame.toLatin1());
     }
 }
 
-void Bluetooth::lireTrame()
+void Bluetooth::rechercherPeripherique(QBluetoothDeviceInfo peripherique)
 {
-    if (socket->canReadLine())
+    if(peripherique.name().startsWith(ESP32_JOLLY_JUMPI))
     {
-        QString line = QString::fromUtf8(socket->readLine()).trimmed();
-        traiterTrame(line);
+        qDebug() << Q_FUNC_INFO << peripherique.name() << peripherique.address().toString();
+        peripheriqueDistant = peripherique;
+        terminerRecherchePeripherique();
+        connecter();
+    }
+}
+
+void Bluetooth::terminerRecherchePeripherique()
+{
+    qDebug() << Q_FUNC_INFO;
+    agentDecouverteBluetooth->stop();
+    disconnect(agentDecouverteBluetooth,
+               &QBluetoothDeviceDiscoveryAgent::deviceDiscovered,
+               this,
+               &Bluetooth::rechercherPeripherique);
+}
+
+void Bluetooth::connecter()
+{
+    if(socket == nullptr)
+    {
+        socket = new QBluetoothSocket(QBluetoothServiceInfo::RfcommProtocol);
+        if(socket != nullptr)
+        {
+            connect(socket, SIGNAL(connected()), this, SLOT(connecterSocket()));
+            connect(socket, SIGNAL(disconnected()), this, SLOT(deconnecterSocket()));
+            connect(socket, SIGNAL(readyRead()), this, SLOT(recevoirTrame()));
+
+            socket->connectToService(peripheriqueDistant.address(),
+                                     QBluetoothUuid(QBluetoothUuid::SerialPort));
+            socket->open(QIODevice::ReadWrite);
+            qDebug() << Q_FUNC_INFO << peripheriqueDistant.name()
+                     << peripheriqueDistant.address().toString();
+        }
+    }
+}
+
+void Bluetooth::deconnecter()
+{
+    if(socket->state() == QBluetoothSocket::ConnectedState)
+    {
+        socket->close();
+        delete socket;
+        socket = nullptr;
+    }
+}
+
+void Bluetooth::connecterSocket()
+{
+    qDebug() << Q_FUNC_INFO << peripheriqueDistant.name()
+             << peripheriqueDistant.address().toString();
+    emit connecte();
+}
+
+void Bluetooth::deconnecterSocket()
+{
+    qDebug() << Q_FUNC_INFO << peripheriqueDistant.name()
+             << peripheriqueDistant.address().toString();
+    emit deconnecte();
+}
+
+void Bluetooth::recevoirTrame()
+{
+    if(socket->canReadLine())
+    {
+        QString trame = QString::fromUtf8(socket->readLine()).trimmed();
+        traiterTrame(trame);
     }
 }
 
 bool Bluetooth::traiterTrame(QString trame)
 {
+    qDebug() << Q_FUNC_INFO << "trame" << trame;
+    // @todo traiter la trame et emettre les signaux correspondants
     return true;
-}
-
-void Bluetooth::reconnaitrePeripherique(QBluetoothDeviceInfo peripherique)
-{
-    if (peripherique.address().toString() == ADRESSE_ESP32_SIMULATEUR)
-    {
-        peripheriqueDistant = peripherique;
-        agentDecouverteBluetooth->stop();
-        estConnecte();
-    }
-}
-
-void Bluetooth::estConnecte()
-{
-    if (socket->state() == QBluetoothSocket::UnconnectedState)
-    {
-        socket->connectToService(peripheriqueDistant.address(), QBluetoothUuid(QBluetoothUuid::SerialPort));
-    }
-}
-
-void Bluetooth::estDeconnecte()
-{
-    emit deconnecte();
-}
-
-void Bluetooth::trameRecue()
-{
-    lireTrame();
-}
-
-bool Bluetooth::getAbandon() const
-{
-    return abandon;
-}
-
-void Bluetooth::setAbandon(bool abandon)
-{
-    this->abandon = abandon;
 }

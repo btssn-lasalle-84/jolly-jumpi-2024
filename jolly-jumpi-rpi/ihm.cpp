@@ -22,7 +22,7 @@
 
 IHM::IHM(QWidget* parent) :
     QMainWindow(parent), partie(new Partie(this)), options(new Options(this)),
-    score(new Score(this)), choixBouton(Bouton::B_Jouer)
+    score(new Score(this)), choixBouton(Bouton::B_Jouer), bluetooth(new Bluetooth(this))
 {
     qDebug() << Q_FUNC_INFO;
 
@@ -42,6 +42,9 @@ IHM::IHM(QWidget* parent) :
 
     // Afficher la fenêtre
     show();
+
+    // Initialiser la communication Bluetooth
+    bluetooth->initialiserCommunication();
 }
 
 IHM::~IHM()

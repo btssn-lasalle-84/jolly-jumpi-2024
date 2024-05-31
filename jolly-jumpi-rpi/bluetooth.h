@@ -2,43 +2,42 @@
 #define BLUETOOTH_H
 
 #include <QObject>
-#include <QBluetoothSocket>
-#include <QBluetoothDeviceDiscoveryAgent>
-#include <QBluetoothServiceInfo>
-#include <QBluetoothUuid>
-#include <QBluetoothDeviceInfo>
+#include <QtBluetooth>
 #include <QString>
+
+#define ESP32_JOLLY_JUMPI QString("jolly-jumpi")
 
 class Bluetooth : public QObject
 {
     Q_OBJECT
 
-public:
+  public:
     explicit Bluetooth(QObject* parent = nullptr);
     ~Bluetooth();
 
     void initialiserCommunication();
-    void envoyerTrame(const QString &trame);
-    bool getAbandon() const;
-    void setAbandon(bool abandon);
+    void envoyerTrame(const QString& trame);
 
-signals:
+  signals:
+    void connecte();
     void deconnecte();
 
-private slots:
-    void reconnaitrePeripherique(QBluetoothDeviceInfo peripherique);
-    void estConnecte();
-    void estDeconnecte();
-    void trameRecue();
+  private slots:
+    void rechercherPeripherique(QBluetoothDeviceInfo peripherique);
+    void terminerRecherchePeripherique();
+    void connecter();
+    void deconnecter();
+    void connecterSocket();
+    void deconnecterSocket();
+    void recevoirTrame();
 
-private:
-    void lireTrame();
-    bool traiterTrame(QString trame);
-
-    QBluetoothSocket* socket;
+  private:
+    QBluetoothSocket*               socket;
     QBluetoothDeviceDiscoveryAgent* agentDecouverteBluetooth;
-    QBluetoothDeviceInfo peripheriqueDistant;
-    bool abandon;
+    QBluetoothDeviceInfo            peripheriqueDistant;
+    QBluetoothLocalDevice           peripheriqueLocal;
+
+    bool traiterTrame(QString trame);
 };
 
 #endif // BLUETOOTH_H
