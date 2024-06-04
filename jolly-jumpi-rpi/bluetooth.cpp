@@ -118,5 +118,25 @@ bool Bluetooth::traiterTrame(QString trame)
 {
     qDebug() << Q_FUNC_INFO << "trame" << trame;
     // @todo traiter la trame et emettre les signaux correspondants
-    return true;
+    if (!trame.startsWith(ENTETE_TRAME) || !trame.endsWith(FIN_TRAME))
+    {
+        qWarning() << "Trame incorrecte : en-tête ou fin manquants";
+        return false;
+    }
+    // Suppression de l'entête et fin de trame
+    trame = trame.mid(ENTETE_TRAME.length(), trame.length() - ENTETE_TRAME.length() - FIN_TRAME.length());
+
+    // Séparation des éléments de la trame
+    QStringList elements = trame.split(DELIMITEUR_TRAME);
+
+    // Traitement des element de la trame
+    for (const QString &element : elements)
+    {
+        if (element.length() != 1)
+        {
+            qWarning() << "Élément de trame incorrect : " << element;
+            continue;
+        }
+        return true;
+    }
 }

@@ -5,6 +5,16 @@
 #include <QtBluetooth>
 #include <QString>
 
+#define ENTETE_TRAME     QString("$JJP")
+#define FIN_TRAME        QString("\n")
+#define DELIMITEUR_TRAME QString(",")
+
+#define ABANDON 'A'
+#define VALIDER 'V'
+#define DROITE  'D'
+#define GAUCHE  'G'
+#define TIR     'T'
+
 #define ESP32_JOLLY_JUMPI QString("jolly-jumpi")
 
 class Bluetooth : public QObject
