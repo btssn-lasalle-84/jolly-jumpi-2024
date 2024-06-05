@@ -42,7 +42,7 @@ void Bluetooth::envoyerTrame(const QString& trame)
 
 void Bluetooth::rechercherPeripherique(QBluetoothDeviceInfo peripherique)
 {
-    if(peripherique.name().startsWith(ESP32_JOLLY_JUMPI))
+    if(peripherique.name().startsWith(NOM_ESP32_SIMULATEUR))
     {
         qDebug() << Q_FUNC_INFO << peripherique.name() << peripherique.address().toString();
         peripheriqueDistant = peripherique;
@@ -117,26 +117,54 @@ void Bluetooth::recevoirTrame()
 bool Bluetooth::traiterTrame(QString trame)
 {
     qDebug() << Q_FUNC_INFO << "trame" << trame;
-    // @todo traiter la trame et emettre les signaux correspondants
+
     if (!trame.startsWith(ENTETE_TRAME) || !trame.endsWith(FIN_TRAME))
     {
-        qWarning() << "Trame incorrecte : en-tête ou fin manquants";
+        qWarning() << "Trame incorrecte : ";
         return false;
     }
-    // Suppression de l'entête et fin de trame
+    // Suppression entête et fin
     trame = trame.mid(ENTETE_TRAME.length(), trame.length() - ENTETE_TRAME.length() - FIN_TRAME.length());
 
-    // Séparation des éléments de la trame
+    // Séparation éléments trame
     QStringList elements = trame.split(DELIMITEUR_TRAME);
 
-    // Traitement des element de la trame
-    for (const QString &element : elements)
-    {
-        if (element.length() != 1)
-        {
-            qWarning() << "Élément de trame incorrect : " << element;
-            continue;
-        }
-        return true;
-    }
+    // Traitement éléments trame
+   for (const QString &element : elements)
+   {
+       if (element.length() != 1)
+       {
+           qWarning() << "Élément de trame incorrect : " << element;
+           continue;
+       }
+       if (element == QString(ACQUITTEMENT))
+       {
+           emit acquittement();
+       }
+       else if (element == QString(ABANDON))
+       {
+           emit abandonPartie();
+       }
+       else if (element == QString(VALIDER))
+       {
+           emit boutonValider();
+       }
+       else if (element == QString(DROITE))
+       {
+           emit encodeurDroite();
+       }
+       else if (element == QString(GAUCHE))
+       {
+           emit encodeurGauche();
+       }
+       else if (element.startsWith(TIR))
+       {
+           emit tirMarque(int numeroTable, int numeroTrou);
+       }
+       else
+           {
+               qWarning() << "Trame de tir incorrecte : " << element;
+           }
+   }
+   return true;
 }

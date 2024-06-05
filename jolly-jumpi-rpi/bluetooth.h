@@ -9,13 +9,15 @@
 #define FIN_TRAME        QString("\n")
 #define DELIMITEUR_TRAME QString(",")
 
-#define ABANDON 'A'
-#define VALIDER 'V'
-#define DROITE  'D'
-#define GAUCHE  'G'
-#define TIR     'T'
+#define ABANDON      'A'
+#define VALIDER      'V'
+#define DROITE       'D'
+#define GAUCHE       'G'
+#define TIR          'T, numeroDeLaTable, numeroDuTrou'
+#define ACQUITTEMENT 'ACK'
 
-#define ESP32_JOLLY_JUMPI QString("jolly-jumpi")
+#define ADRESSE_ESP32_SIMULATEUR QString("08:3a:f2:a8:e3:c2")
+#define NOM_ESP32_SIMULATEUR     QString("jolly-jumpi-1")
 
 class Bluetooth : public QObject
 {
@@ -31,6 +33,12 @@ class Bluetooth : public QObject
   signals:
     void connecte();
     void deconnecte();
+    void acquittement();
+    void abandonPartie();
+    void boutonValider();
+    void encodeurDroite();
+    void encodeurGauche();
+    void tirMarque(int numeroTable, int numeroTrou);
 
   private slots:
     void rechercherPeripherique(QBluetoothDeviceInfo peripherique);

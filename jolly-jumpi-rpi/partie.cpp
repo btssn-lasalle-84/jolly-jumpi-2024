@@ -63,6 +63,7 @@ void Partie::initialiserEcran()
     QVBoxLayout* layoutBoutons = new QVBoxLayout;
     layoutBoutons->setContentsMargins(150, 50, 150, 50);
     QPushButton* bouton = new QPushButton("Abandonner", this);
+    bouton->setStyleSheet("background-color: blue;");
     bouton->setObjectName("abandonnerButton");
     layoutBoutons->addWidget(bouton);
     connect(bouton, &QPushButton::clicked, this, &Partie::fermerEcran);

@@ -85,6 +85,10 @@ void IHM::creerEcrans()
     ecranPrincipal->setLayout(layoutPrincipal);
     setCentralWidget(ecranPrincipal);
 
+
+    // Fond en vert clair
+    setStyleSheet("background-color: lightgreen;");
+
     // les écrans
     ecrans = new QStackedWidget(this);
 
@@ -104,11 +108,18 @@ void IHM::creerEcrans()
 
 void IHM::creerBanniere()
 {
+    qDebug() << Q_FUNC_INFO;
+
     QFrame* banniere = new QFrame(this);
-    banniere->setStyleSheet("background-color: blue; color: white; font-size: 24px;");
-    QLabel* labelBanniere = new QLabel(NOM_APPLICATION, banniere);
+    QHBoxLayout* layoutBanniere = new QHBoxLayout;
+
+    banniere->setLayout(layoutBanniere);
+    banniere->setStyleSheet("background-color: blue; height: 100px;");
+
+    QLabel* labelBanniere = new QLabel("Jolly Jumpi");
     labelBanniere->setAlignment(Qt::AlignCenter);
-    QHBoxLayout* layoutBanniere = new QHBoxLayout(banniere);
+    labelBanniere->setStyleSheet("font-size: 60px; font-weight: bold; color: white;");
+
     layoutBanniere->addWidget(labelBanniere);
     banniere->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
     setMenuWidget(banniere);
@@ -138,7 +149,7 @@ void IHM::creerBoutons()
     for(int i = 0; i < nomBoutons.size(); ++i)
     {
         QPushButton* bouton = new QPushButton(nomBoutons.at(i), this);
-        bouton->setStyleSheet("font-size: 60px;");
+        bouton->setStyleSheet("font-size: 70px;");
         boutons.push_back(bouton);
         layoutBoutons->addWidget(bouton);
 
