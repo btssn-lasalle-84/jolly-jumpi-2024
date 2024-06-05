@@ -67,6 +67,7 @@ class IHM : public QMainWindow
     void creerBanniere();
     void creerBoutons();
     void creerNavigation();
+    void creerInteraction();
 
   private slots:
     void afficherAccueil();

@@ -8,12 +8,13 @@
 #define ENTETE_TRAME     QString("$JJP")
 #define FIN_TRAME        QString("\n")
 #define DELIMITEUR_TRAME QString(",")
+#define TYPE_TRAME       1
 
 #define ABANDON      'A'
 #define VALIDER      'V'
 #define DROITE       'D'
 #define GAUCHE       'G'
-#define TIR          'T, numeroDeLaTable, numeroDuTrou'
+#define TIR          'T'
 #define ACQUITTEMENT 'ACK'
 
 #define ADRESSE_ESP32_SIMULATEUR QString("08:3a:f2:a8:e3:c2")
@@ -38,7 +39,7 @@ class Bluetooth : public QObject
     void boutonValider();
     void encodeurDroite();
     void encodeurGauche();
-    void tirMarque(int numeroTable, int numeroTrou);
+    void tirReussi(int numeroTable, int numeroTrou);
 
   private slots:
     void rechercherPeripherique(QBluetoothDeviceInfo peripherique);

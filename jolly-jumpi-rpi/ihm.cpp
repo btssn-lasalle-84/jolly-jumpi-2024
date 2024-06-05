@@ -39,6 +39,7 @@ IHM::IHM(QWidget* parent) :
     creerBanniere();
     creerBoutons();
     creerNavigation();
+    creerInteraction();
 
     // Afficher la fenêtre
     show();
@@ -85,7 +86,6 @@ void IHM::creerEcrans()
     ecranPrincipal->setLayout(layoutPrincipal);
     setCentralWidget(ecranPrincipal);
 
-
     // Fond en vert clair
     setStyleSheet("background-color: lightgreen;");
 
@@ -110,7 +110,7 @@ void IHM::creerBanniere()
 {
     qDebug() << Q_FUNC_INFO;
 
-    QFrame* banniere = new QFrame(this);
+    QFrame*      banniere       = new QFrame(this);
     QHBoxLayout* layoutBanniere = new QHBoxLayout;
 
     banniere->setLayout(layoutBanniere);
@@ -184,4 +184,11 @@ void IHM::creerNavigation()
     connect(score, &Score::abandon, this, &IHM::afficherAccueil);
 
     connect(ecrans, &QStackedWidget::currentChanged, this, &IHM::gererAffichageBanniere);
+}
+
+void IHM::creerInteraction()
+{
+    // Exemple :
+    connect(bluetooth, &Bluetooth::boutonValider, this, &IHM::jouer);
+    // @todo connecter les signaux émis par l'objet bluetooth à des slots
 }

@@ -118,53 +118,65 @@ bool Bluetooth::traiterTrame(QString trame)
 {
     qDebug() << Q_FUNC_INFO << "trame" << trame;
 
-    if (!trame.startsWith(ENTETE_TRAME) || !trame.endsWith(FIN_TRAME))
+    if(!trame.startsWith(ENTETE_TRAME) || !trame.endsWith(FIN_TRAME))
     {
-        qWarning() << "Trame incorrecte : ";
+        qWarning() << "Trame incorrecte !";
         return false;
     }
+
     // Suppression entête et fin
-    trame = trame.mid(ENTETE_TRAME.length(), trame.length() - ENTETE_TRAME.length() - FIN_TRAME.length());
+    trame =
+      trame.mid(ENTETE_TRAME.length(), trame.length() - ENTETE_TRAME.length() - FIN_TRAME.length());
 
     // Séparation éléments trame
     QStringList elements = trame.split(DELIMITEUR_TRAME);
+    qDebug() << Q_FUNC_INFO << "elements" << elements;
 
     // Traitement éléments trame
-   for (const QString &element : elements)
-   {
-       if (element.length() != 1)
-       {
-           qWarning() << "Élément de trame incorrect : " << element;
-           continue;
-       }
-       if (element == QString(ACQUITTEMENT))
-       {
-           emit acquittement();
-       }
-       else if (element == QString(ABANDON))
-       {
-           emit abandonPartie();
-       }
-       else if (element == QString(VALIDER))
-       {
-           emit boutonValider();
-       }
-       else if (element == QString(DROITE))
-       {
-           emit encodeurDroite();
-       }
-       else if (element == QString(GAUCHE))
-       {
-           emit encodeurGauche();
-       }
-       else if (element.startsWith(TIR))
-       {
-           emit tirMarque(int numeroTable, int numeroTrou);
-       }
-       else
-           {
-               qWarning() << "Trame de tir incorrecte : " << element;
-           }
-   }
-   return true;
+    if(elements[TYPE_TRAME].isEmpty())
+    {
+        qWarning() << "Type de trame manquant";
+        return false;
+    }
+    if(elements[TYPE_TRAME] == QString(ACQUITTEMENT))
+    {
+        qDebug() << Q_FUNC_INFO << "trame ACK";
+        emit acquittement();
+    }
+    else if(elements[TYPE_TRAME] == QString(ABANDON))
+    {
+        qDebug() << Q_FUNC_INFO << "trame A";
+        emit abandonPartie();
+    }
+    else if(elements[TYPE_TRAME] == QString(VALIDER))
+    {
+        qDebug() << Q_FUNC_INFO << "trame V";
+        emit boutonValider();
+    }
+    else if(elements[TYPE_TRAME] == QString(DROITE))
+    {
+        qDebug() << Q_FUNC_INFO << "trame D";
+        emit encodeurDroite();
+    }
+    else if(elements[TYPE_TRAME] == QString(GAUCHE))
+    {
+        qDebug() << Q_FUNC_INFO << "trame G";
+        emit encodeurGauche();
+    }
+    else if(elements[TYPE_TRAME] == QString(TIR))
+    {
+        if(elements.count() == 4)
+        {
+            qDebug() << Q_FUNC_INFO << "trame T"
+                     << "numeroTable" << elements[2].toInt() << "numeroTrou" << elements[3].toInt();
+            emit tirReussi(elements[2].toInt(), elements[3].toInt());
+        }
+    }
+    else
+    {
+        qWarning() << "Type de trame inconnu" << elements[TYPE_TRAME];
+        return false;
+    }
+
+    return true;
 }
