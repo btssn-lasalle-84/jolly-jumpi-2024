@@ -1,4 +1,6 @@
 #include "bluetooth.h"
+#include "ihm.h"
+#include "partie.h"
 #include <QDebug>
 
 Bluetooth::Bluetooth(QObject* parent) :
@@ -125,8 +127,7 @@ bool Bluetooth::traiterTrame(QString trame)
     }
 
     // Suppression entête et fin
-    trame =
-      trame.mid(ENTETE_TRAME.length(), trame.length() - ENTETE_TRAME.length() - FIN_TRAME.length());
+    trame = trame.mid(ENTETE_TRAME.length(), trame.length() - ENTETE_TRAME.length() - FIN_TRAME.length());
 
     // Séparation éléments trame
     QStringList elements = trame.split(DELIMITEUR_TRAME);
@@ -146,7 +147,7 @@ bool Bluetooth::traiterTrame(QString trame)
     else if(elements[TYPE_TRAME] == QString(ABANDON))
     {
         qDebug() << Q_FUNC_INFO << "trame A";
-        emit abandonPartie();
+        emit boutonAbandonner();
     }
     else if(elements[TYPE_TRAME] == QString(VALIDER))
     {

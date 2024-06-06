@@ -32,49 +32,52 @@ class IHM : public QMainWindow
 {
     Q_OBJECT
 
-  public:
-    explicit IHM(QWidget* parent = nullptr);
-    ~IHM();
+    public:
+        explicit IHM(QWidget* parent = nullptr);
+        ~IHM();
 
-    /**
-     * @enum Bouton
-     * @brief Définit les différentes boutons de l'IHM
-     *
-     */
-    enum Bouton
-    {
-        Accueil = -1,
-        B_Jouer,
-        B_Options,
-        B_Score,
-        NbBoutons
+        /**
+         * @enum Bouton
+         * @brief Définit les différentes boutons de l'IHM
+         *
+         */
+        enum Bouton
+        {
+            Accueil = -1,
+            B_Jouer,
+            B_Options,
+            B_Score,
+            NbBoutons
     };
 
-  private:
-    Partie*               partie;
-    Options*              options;
-    Score*                score;
-    QWidget*              ecranPrincipal;
-    QVBoxLayout*          layoutPrincipal;
-    QStackedWidget*       ecrans;
-    QWidget*              accueil;
-    QVBoxLayout*          layoutAccueil;
-    QVector<QPushButton*> boutons;
-    Bouton                choixBouton;
-    Bluetooth*            bluetooth;
+    public slots:
+        void gestionNavigation();
 
-    void creerEcrans();
-    void creerBanniere();
-    void creerBoutons();
-    void creerNavigation();
-    void creerInteraction();
+    private:
+        Partie*               partie;
+        Options*              options;
+        Score*                score;
+        QWidget*              ecranPrincipal;
+        QVBoxLayout*          layoutPrincipal;
+        QStackedWidget*       ecrans;
+        QWidget*              accueil;
+        QVBoxLayout*          layoutAccueil;
+        QVector<QPushButton*> boutons;
+        Bouton                choixBouton;
+        Bluetooth*            bluetooth;
 
-  private slots:
-    void afficherAccueil();
-    void jouer();
-    void reglerParametres();
-    void afficherScores();
-    void gererAffichageBanniere();
+        void creerEcrans();
+        void creerBanniere();
+        void creerBoutons();
+        void creerNavigation();
+        void creerInteraction();
+
+    private slots:
+        void afficherAccueil();
+        void jouer();
+        void reglerParametres();
+        void afficherScores();
+        void gererAffichageBanniere();
 };
 
 #endif // IHM_H
