@@ -186,14 +186,6 @@ void IHM::creerNavigation()
     connect(ecrans, &QStackedWidget::currentChanged, this, &IHM::gererAffichageBanniere);
 }
 
-void IHM::gestionNavigation()
-{
-    connect(socket, SIGNAL(boutonAbandonner()), this, SLOT(......()));
-    connect(socket, SIGNAL(boutonValider()), this, SLOT(......()));
-    connect(socket, SIGNAL(encodeurDroite()), this, SLOT(......()));
-    connect(socket, SIGNAL(encodeurGauche()), this, SLOT(......()));
-}
-
 void IHM::creerInteraction()
 {
     // Exemple :

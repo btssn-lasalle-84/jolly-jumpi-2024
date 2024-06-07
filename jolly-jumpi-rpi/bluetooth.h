@@ -4,8 +4,6 @@
 #include <QObject>
 #include <QtBluetooth>
 #include <QString>
-#include "ihm.h"
-#include "partie.h"
 
 #define ENTETE_TRAME     QString("$JPP")
 #define FIN_TRAME        QString("\n")
@@ -37,7 +35,7 @@ class Bluetooth : public QObject
     void connecte();
     void deconnecte();
     void acquittement();
-    void boutonAbandonner();
+    void abandonPartie();
     void boutonValider();
     void encodeurDroite();
     void encodeurGauche();
