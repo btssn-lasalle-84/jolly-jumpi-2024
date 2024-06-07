@@ -36,13 +36,14 @@ void Bluetooth::envoyerTrame(const QString& trame)
 {
     if(socket != nullptr && socket->state() == QBluetoothSocket::ConnectedState)
     {
+        qDebug() << Q_FUNC_INFO << "trame" << trame;
         socket->write(trame.toLatin1());
     }
 }
 
 void Bluetooth::rechercherPeripherique(QBluetoothDeviceInfo peripherique)
 {
-    if(peripherique.name().startsWith(NOM_ESP32_SIMULATEUR))
+    if(peripherique.name().startsWith(ESP32_BLUETOOTH))
     {
         qDebug() << Q_FUNC_INFO << peripherique.name() << peripherique.address().toString();
         peripheriqueDistant = peripherique;
@@ -118,7 +119,8 @@ bool Bluetooth::traiterTrame(QString trame)
 {
     qDebug() << Q_FUNC_INFO << "trame" << trame;
 
-    trame += "\n";
+    if(!trame.endsWith(FIN_TRAME))
+        trame += "\n";
     if(!trame.startsWith(ENTETE_TRAME) || !trame.endsWith(FIN_TRAME))
     {
         qWarning() << "Trame incorrecte !";

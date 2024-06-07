@@ -31,6 +31,22 @@ void Partie::initialiser()
 #endif
 }
 
+void Partie::avancerCheval(int numero, int position)
+{
+    qDebug() << Q_FUNC_INFO << "numero" << numero << "position" << position;
+    int points = 0;
+    if(position >= 1 && position <= 3)
+        points = 1;
+    if(position >= 4 && position <= 5)
+        points = 2;
+    if(position == 6)
+        points = 3;
+    qDebug() << Q_FUNC_INFO << "numero" << numero << "points" << points;
+    positionsChevaux[numero - 1] += points;
+    if(positionsChevaux[numero - 1] < LONGUEUR_COURSE_DEFAUT)
+        afficherCheval(numero - 1, positionsChevaux[numero - 1]);
+}
+
 void Partie::initialiserEcran()
 {
     QVBoxLayout* layoutFenetre = new QVBoxLayout();

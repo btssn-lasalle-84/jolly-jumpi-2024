@@ -63,6 +63,9 @@ void IHM::jouer()
 {
     qDebug() << Q_FUNC_INFO;
     partie->initialiser();
+    QString trame = ENTETE_TRAME + DELIMITEUR_TRAME + "S" + DELIMITEUR_TRAME + "N" +
+                    DELIMITEUR_TRAME + "6" + FIN_TRAME;
+    bluetooth->envoyerTrame(trame);
     ecrans->setCurrentWidget(partie);
 }
 
@@ -190,5 +193,7 @@ void IHM::creerInteraction()
 {
     // Exemple :
     connect(bluetooth, &Bluetooth::boutonValider, this, &IHM::jouer);
+    connect(bluetooth, &Bluetooth::abandonPartie, this, &IHM::afficherAccueil);
+    connect(bluetooth, &Bluetooth::tirReussi, partie, &Partie::avancerCheval);
     // @todo connecter les signaux émis par l'objet bluetooth à des slots
 }
