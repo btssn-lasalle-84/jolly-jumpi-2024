@@ -7,10 +7,10 @@
 - [Le projet jolly-jumpi 2024](#le-projet-jolly-jumpi-2024)
   - [Présentation](#présentation)
   - [Fonctionnalités](#fonctionnalités)
+  - [Screenshots](#screenshots)
   - [Documentation du code](#documentation-du-code)
   - [Diagramme de classes](#diagramme-de-classes)
   - [Protocole](#protocole)
-  - [Screenshots](#screenshots)
   - [Historique des versions](#historique-des-versions)
   - [Auteurs](#auteurs)
 
@@ -24,13 +24,17 @@ Le système Jolly-JumPi est un système numérique permettant de jouer au tierc�
 
 ![uc](images/uc.png)
 
+## Screenshots
+
+![screenshot-partie-v0.2](images/jolly-jumpi-v1.0.gif)
+
 ## Documentation du code
 
 https://btssn-lasalle-84.github.io/jolly-jumpi-2024/
 
 ## Diagramme de classes
 
-![classes-v0.2](images/classes-v0.2.png)
+![classes-v1.0](images/classes-v1.0.png)
 
 ## Protocole
 
@@ -40,11 +44,12 @@ https://btssn-lasalle-84.github.io/jolly-jumpi-2024/
 
 ![identification-trou](images/identification-trou.png)
 
-## Screenshots
-
-![screenshot-partie-v0.2](images/screenshot-partie-v0.2.png)
-
 ## Historique des versions
+
+- Version 1.0
+
+![jira-v1.0](images/jira-v1.0.png)
+
 
 - Version 0.2
 
