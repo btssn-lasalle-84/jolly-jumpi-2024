@@ -30,6 +30,9 @@ class Partie : public QWidget
 
     void initialiser();
 
+  public slots:
+    void avancerCheval(int numero, int position);
+
   private slots:
     void fermerEcran();
 #ifdef SIMULATION_CLAVIER

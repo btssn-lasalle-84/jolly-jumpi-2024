@@ -20,6 +20,7 @@
 class Partie;
 class Options;
 class Score;
+class Bluetooth;
 
 /**
  * @class IHM
@@ -60,11 +61,13 @@ class IHM : public QMainWindow
     QVBoxLayout*          layoutAccueil;
     QVector<QPushButton*> boutons;
     Bouton                choixBouton;
+    Bluetooth*            bluetooth;
 
     void creerEcrans();
     void creerBanniere();
     void creerBoutons();
     void creerNavigation();
+    void creerInteraction();
 
   private slots:
     void afficherAccueil();
