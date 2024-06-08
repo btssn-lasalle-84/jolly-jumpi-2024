@@ -5,7 +5,7 @@
  * @file ihm.h
  * @brief Déclaration de la classe IHM
  * @author ARMANDO Célian
- * @version 0.2
+ * @version 1.0
  */
 
 #include <QtWidgets>
