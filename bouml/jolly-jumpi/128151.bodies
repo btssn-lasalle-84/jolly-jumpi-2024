@@ -1,14 +1,27 @@
 class IHM
 !!!128151.cpp!!!	IHM(inout parent : QWidget = nullptr)
     qDebug() << Q_FUNC_INFO;
-    qDebug() << qApp->primaryScreen()->availableGeometry();
 
+    // Obtenir les dimensions de l'écran disponible
+    QRect screenGeometry = qApp->primaryScreen()->availableGeometry();
+    qDebug() << "Screen Geometry:" << screenGeometry;
+
+    // Définir la taille de la fenêtre pour qu'elle s'ajuste à l'écran
+    resize(screenGeometry.width(), screenGeometry.height());
+    setFixedSize(screenGeometry.width(), screenGeometry.height());
+
+    // Appels aux fonctions pour créer l'interface utilisateur
     creerEcrans();
     creerBanniere();
     creerBoutons();
     creerNavigation();
+    creerInteraction();
 
-    showMaximized();
+    // Afficher la fenêtre
+    show();
+
+    // Initialiser la communication Bluetooth
+    bluetooth->initialiserCommunication();
 !!!128279.cpp!!!	~IHM()
     qDebug() << Q_FUNC_INFO;
 !!!141866.cpp!!!	creerEcrans() : void
@@ -17,6 +30,9 @@ class IHM
     layoutPrincipal = new QVBoxLayout;
     ecranPrincipal->setLayout(layoutPrincipal);
     setCentralWidget(ecranPrincipal);
+
+    // Fond en vert clair
+    setStyleSheet("background-color: lightgreen;");
 
     // les écrans
     ecrans = new QStackedWidget(this);
@@ -34,11 +50,18 @@ class IHM
 
     layoutPrincipal->addWidget(ecrans);
 !!!134570.cpp!!!	creerBanniere() : void
-    QFrame* banniere = new QFrame(this);
-    banniere->setStyleSheet("background-color: blue; color: white; font-size: 24px;");
-    QLabel* labelBanniere = new QLabel(NOM_APPLICATION, banniere);
+    qDebug() << Q_FUNC_INFO;
+
+    QFrame*      banniere       = new QFrame(this);
+    QHBoxLayout* layoutBanniere = new QHBoxLayout;
+
+    banniere->setLayout(layoutBanniere);
+    banniere->setStyleSheet("background-color: blue; height: 100px;");
+
+    QLabel* labelBanniere = new QLabel("Jolly Jumpi");
     labelBanniere->setAlignment(Qt::AlignCenter);
-    QHBoxLayout* layoutBanniere = new QHBoxLayout(banniere);
+    labelBanniere->setStyleSheet("font-size: 60px; font-weight: bold; color: white;");
+
     layoutBanniere->addWidget(labelBanniere);
     banniere->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
     setMenuWidget(banniere);
@@ -53,7 +76,7 @@ class IHM
     for(int i = 0; i < nomBoutons.size(); ++i)
     {
         QPushButton* bouton = new QPushButton(nomBoutons.at(i), this);
-        bouton->setStyleSheet("font-size: 60px;");
+        bouton->setStyleSheet("font-size: 70px;");
         boutons.push_back(bouton);
         layoutBoutons->addWidget(bouton);
 
@@ -85,12 +108,21 @@ class IHM
     connect(score, &Score::abandon, this, &IHM::afficherAccueil);
 
     connect(ecrans, &QStackedWidget::currentChanged, this, &IHM::gererAffichageBanniere);
+!!!153386.cpp!!!	creerInteraction() : void
+    // Exemple :
+    connect(bluetooth, &Bluetooth::boutonValider, this, &IHM::jouer);
+    connect(bluetooth, &Bluetooth::abandonPartie, this, &IHM::afficherAccueil);
+    connect(bluetooth, &Bluetooth::tirReussi, partie, &Partie::avancerCheval);
+    // @todo connecter les signaux émis par l'objet bluetooth à des slots
 !!!142122.cpp!!!	afficherAccueil() : void
     qDebug() << Q_FUNC_INFO;
     ecrans->setCurrentWidget(accueil);
 !!!134826.cpp!!!	jouer() : void
     qDebug() << Q_FUNC_INFO;
     partie->initialiser();
+    QString trame = ENTETE_TRAME + DELIMITEUR_TRAME + "S" + DELIMITEUR_TRAME + "N" +
+                    DELIMITEUR_TRAME + "6" + FIN_TRAME;
+    bluetooth->envoyerTrame(trame);
     ecrans->setCurrentWidget(partie);
 !!!134954.cpp!!!	reglerParametres() : void
     qDebug() << Q_FUNC_INFO;

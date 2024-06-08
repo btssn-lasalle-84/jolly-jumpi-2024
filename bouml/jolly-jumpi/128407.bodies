@@ -19,6 +19,19 @@ class Partie
     numeroChevalSelectionne = 0;
     initialiserPositionsChevaux();
 #endif
+!!!153514.cpp!!!	avancerCheval(in numero : int, in position : int) : void
+    qDebug() << Q_FUNC_INFO << "numero" << numero << "position" << position;
+    int points = 0;
+    if(position >= 1 && position <= 3)
+        points = 1;
+    if(position >= 4 && position <= 5)
+        points = 2;
+    if(position == 6)
+        points = 3;
+    qDebug() << Q_FUNC_INFO << "numero" << numero << "points" << points;
+    positionsChevaux[numero - 1] += points;
+    if(positionsChevaux[numero - 1] < LONGUEUR_COURSE_DEFAUT)
+        afficherCheval(numero - 1, positionsChevaux[numero - 1]);
 !!!142890.cpp!!!	fermerEcran() : void
     emit fermetureEcran("Partie");
 !!!143018.cpp!!!	simulerAvancementCheval() : void
@@ -64,6 +77,7 @@ class Partie
     QVBoxLayout* layoutBoutons = new QVBoxLayout;
     layoutBoutons->setContentsMargins(150, 50, 150, 50);
     QPushButton* bouton = new QPushButton("Abandonner", this);
+    bouton->setStyleSheet("background-color: blue;");
     bouton->setObjectName("abandonnerButton");
     layoutBoutons->addWidget(bouton);
     connect(bouton, &QPushButton::clicked, this, &Partie::fermerEcran);
