@@ -15,7 +15,7 @@ Options::~Options()
 void Options::initialiserEcran()
 {
     QVBoxLayout* layout           = new QVBoxLayout(this);
-    QPushButton* abandonnerButton = new QPushButton("Abandonner", this);
+    QPushButton* abandonnerButton = new QPushButton("Retour", this);
     connect(abandonnerButton, &QPushButton::clicked, this, &Options::abandonner);
     abandonnerButton->setStyleSheet("font-size: 30px;");
     layout->setAlignment(Qt::AlignCenter);

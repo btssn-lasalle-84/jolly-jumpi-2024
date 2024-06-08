@@ -5,7 +5,7 @@
  * @file ihm.h
  * @brief Déclaration de la classe IHM
  * @author ARMANDO Célian
- * @version 0.2
+ * @version 1.0
  */
 
 #include <QtWidgets>
@@ -20,6 +20,7 @@
 class Partie;
 class Options;
 class Score;
+class Bluetooth;
 
 /**
  * @class IHM
@@ -60,11 +61,13 @@ class IHM : public QMainWindow
     QVBoxLayout*          layoutAccueil;
     QVector<QPushButton*> boutons;
     Bouton                choixBouton;
+    Bluetooth*            bluetooth;
 
     void creerEcrans();
     void creerBanniere();
     void creerBoutons();
     void creerNavigation();
+    void creerInteraction();
 
   private slots:
     void afficherAccueil();
