@@ -1,0 +1,10 @@
+<map id="IHM" name="IHM">
+<area shape="rect" id="node1" title="Déclaration de la classe IHM." alt="" coords="281,492,475,819"/>
+<area shape="rect" id="node2" href="$class_q_main_window.html" title=" " alt="" coords="5,242,121,319"/>
+<area shape="rect" id="node3" href="$class_options.html" title=" " alt="" coords="146,220,285,341"/>
+<area shape="rect" id="node4" href="$class_q_widget.html" title=" " alt="" coords="339,5,417,83"/>
+<area shape="rect" id="node7" href="$class_score.html" title=" " alt="" coords="309,220,447,341"/>
+<area shape="rect" id="node8" href="$class_partie.html" title=" " alt="" coords="472,132,719,429"/>
+<area shape="rect" id="node5" href="$class_bluetooth.html" title=" " alt="" coords="743,139,989,422"/>
+<area shape="rect" id="node6" href="$class_q_object.html" title=" " alt="" coords="829,5,903,83"/>
+</map>

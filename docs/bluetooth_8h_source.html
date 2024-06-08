@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projet jolly-jumpi:  Fichier source de bluetooth.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="customdoxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="projet-logo.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Projet jolly-jumpi
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+   <div id="projectbrief">BTS SNIR LaSalle Avignon 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('bluetooth_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">bluetooth.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="bluetooth_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef BLUETOOTH_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define BLUETOOTH_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QObject&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;QtBluetooth&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;QString&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="bluetooth_8h.html#a1eba9a3f117013063ce6c6133e67d1d2">    8</a></span>&#160;<span class="preprocessor">#define ENTETE_TRAME_PUPITRE    QString(&quot;$JJP&quot;</span>)</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="bluetooth_8h.html#a1651698d54e812e17d51a5bc0d23f005">    9</a></span>&#160;<span class="preprocessor">#define ENTETE_TRAME_SIMULATEUR QString(&quot;$JPP&quot;</span>)</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">// choisir</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="bluetooth_8h.html#a226742d7ade287673fb2295df90f462b">   12</a></span>&#160;<span class="preprocessor">#define ENTETE_TRAME ENTETE_TRAME_SIMULATEUR</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="bluetooth_8h.html#a4e6b00f2aded94906a17b7ab7eaf28df">   14</a></span>&#160;<span class="preprocessor">#define FIN_TRAME        QString(&quot;\n&quot;</span>)</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="bluetooth_8h.html#ad6cf16313ed9fde0da94068fe5aeef3a">   15</a></span>&#160;<span class="preprocessor">#define DELIMITEUR_TRAME QString(&quot;,&quot;</span>)</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="bluetooth_8h.html#a8da23fa25560c54c52884746a5d1cc69">   16</a></span>&#160;<span class="preprocessor">#define TYPE_TRAME       1</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="bluetooth_8h.html#ae7dc8116c7d2e19563eb40b982d53751">   18</a></span>&#160;<span class="preprocessor">#define ABANDON      &#39;A&#39;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="bluetooth_8h.html#acff799ca00b577f911628dfc53587fc3">   19</a></span>&#160;<span class="preprocessor">#define VALIDER      &#39;V&#39;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="bluetooth_8h.html#af625d3f3bc022848a558f2b18def5b15">   20</a></span>&#160;<span class="preprocessor">#define DROITE       &#39;D&#39;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="bluetooth_8h.html#af07f8bf974fdf76afd17f2b97ac15a22">   21</a></span>&#160;<span class="preprocessor">#define GAUCHE       &#39;G&#39;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="bluetooth_8h.html#afb651bade2153af58332e46b6b320435">   22</a></span>&#160;<span class="preprocessor">#define TIR          &#39;T&#39;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="bluetooth_8h.html#aae802afcdc2d003cae42517e005ceea6">   23</a></span>&#160;<span class="preprocessor">#define ACQUITTEMENT &#39;ACK&#39;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">//#define ADRESSE_ESP32_SIMULATEUR QString(&quot;08:3a:f2:a8:e3:c2&quot;)</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="bluetooth_8h.html#a16d79728e2ac2ed427fa0868fa25ed4e">   26</a></span>&#160;<span class="preprocessor">#define ESP32_PUPITRE    QString(&quot;jumpi-Table&quot;</span>)</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="bluetooth_8h.html#aa6c720bff4331b1771551ed45e6cd47a">   27</a></span>&#160;<span class="preprocessor">#define ESP32_SIMULATEUR QString(&quot;jolly-jumpi-1&quot;</span>)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">// choisir</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="bluetooth_8h.html#a74c4dc209844f4803a565812d0b479f9">   30</a></span>&#160;<span class="preprocessor">#define ESP32_BLUETOOTH ESP32_SIMULATEUR</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="class_bluetooth.html">   32</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_bluetooth.html">Bluetooth</a> : <span class="keyword">public</span> <a class="code" href="class_q_object.html">QObject</a></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_bluetooth.html#a4a2bba1ddd942971430b19b172300d97">Bluetooth</a>(<a class="code" href="class_q_object.html">QObject</a>* parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="class_bluetooth.html#aa1544a5f4cadcc689627a6c69031e583">~Bluetooth</a>();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_bluetooth.html#af5463db2d9ae9f449c34efdcbb9b72af">initialiserCommunication</a>();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_bluetooth.html#a55548671e21646dad1f99d068097e2c3">envoyerTrame</a>(<span class="keyword">const</span> QString&amp; trame);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  signals:</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="class_bluetooth.html#a3c2b05721eef49ec945650905568c20d">   44</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_bluetooth.html#a3c2b05721eef49ec945650905568c20d">connecte</a>();</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="class_bluetooth.html#a2c5ad5cd3517b5f2a58f2cbe1e05dd11">   45</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_bluetooth.html#a2c5ad5cd3517b5f2a58f2cbe1e05dd11">deconnecte</a>();</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_bluetooth.html#afb9a5ea7d5922925dbb3d78df496fac7">   46</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_bluetooth.html#afb9a5ea7d5922925dbb3d78df496fac7">acquittement</a>();</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="class_bluetooth.html#a31210f8b2d1cd3fa1c7dbf2e880a916b">   47</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_bluetooth.html#a31210f8b2d1cd3fa1c7dbf2e880a916b">abandonPartie</a>();</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="class_bluetooth.html#a2ba5e83b24041079b44617a9a72d63e6">   48</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_bluetooth.html#a2ba5e83b24041079b44617a9a72d63e6">boutonValider</a>();</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="class_bluetooth.html#a9e81126aecd1f91735d19634040b90cd">   49</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_bluetooth.html#a9e81126aecd1f91735d19634040b90cd">encodeurDroite</a>();</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="class_bluetooth.html#aadadd8cefdda0ba36cadef057fbc4dc8">   50</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_bluetooth.html#aadadd8cefdda0ba36cadef057fbc4dc8">encodeurGauche</a>();</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="class_bluetooth.html#a5ce9e6d410d29160b82b7d3dcc4abdf2">   51</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_bluetooth.html#a5ce9e6d410d29160b82b7d3dcc4abdf2">tirReussi</a>(<span class="keywordtype">int</span> numeroTable, <span class="keywordtype">int</span> numeroTrou);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keyword">private</span> slots:</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_bluetooth.html#ab83be3cd29a0f5210ecaa50092c456f8">rechercherPeripherique</a>(QBluetoothDeviceInfo peripherique);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_bluetooth.html#a2051934af49842831f5a35e746961bd4">terminerRecherchePeripherique</a>();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_bluetooth.html#a7707ce6f4a9b83d8009abc2f135bd2c8">connecter</a>();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_bluetooth.html#a5663d28dd0192e24a7c62295d59d183c">deconnecter</a>();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_bluetooth.html#a68358817b11394edc93cbecc143f7a5a">connecterSocket</a>();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_bluetooth.html#aa2027d1356e7917f47fb5dd2686264eb">deconnecterSocket</a>();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_bluetooth.html#a71dc2b4ae200e4b37625e4313089c0ee">recevoirTrame</a>();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="class_bluetooth.html#affc06510a37cd3f6b4f9e2cf9777394f">   63</a></span>&#160;    QBluetoothSocket*               <a class="code" href="class_bluetooth.html#affc06510a37cd3f6b4f9e2cf9777394f">socket</a>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="class_bluetooth.html#ac6f2bc0823731ccba589c56de4a0a8eb">   64</a></span>&#160;    QBluetoothDeviceDiscoveryAgent* <a class="code" href="class_bluetooth.html#ac6f2bc0823731ccba589c56de4a0a8eb">agentDecouverteBluetooth</a>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="class_bluetooth.html#a4e004bb1ea688b0e86aac5d27821d0ab">   65</a></span>&#160;    QBluetoothDeviceInfo            <a class="code" href="class_bluetooth.html#a4e004bb1ea688b0e86aac5d27821d0ab">peripheriqueDistant</a>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="class_bluetooth.html#a72f13845969bdb9ffba04e88d5ab0021">   66</a></span>&#160;    QBluetoothLocalDevice           <a class="code" href="class_bluetooth.html#a72f13845969bdb9ffba04e88d5ab0021">peripheriqueLocal</a>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_bluetooth.html#ac8c40f520d67465d53b43b7ff40adb89">traiterTrame</a>(QString trame);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;};</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// BLUETOOTH_H</span></div>
+<div class="ttc" id="aclass_bluetooth_html"><div class="ttname"><a href="class_bluetooth.html">Bluetooth</a></div><div class="ttdef"><b>Definition:</b> <a href="bluetooth_8h_source.html#l00032">bluetooth.h:33</a></div></div>
+<div class="ttc" id="aclass_bluetooth_html_a2051934af49842831f5a35e746961bd4"><div class="ttname"><a href="class_bluetooth.html#a2051934af49842831f5a35e746961bd4">Bluetooth::terminerRecherchePeripherique</a></div><div class="ttdeci">void terminerRecherchePeripherique()</div><div class="ttdef"><b>Definition:</b> <a href="bluetooth_8cpp_source.html#l00055">bluetooth.cpp:55</a></div></div>
+<div class="ttc" id="aclass_bluetooth_html_a2ba5e83b24041079b44617a9a72d63e6"><div class="ttname"><a href="class_bluetooth.html#a2ba5e83b24041079b44617a9a72d63e6">Bluetooth::boutonValider</a></div><div class="ttdeci">void boutonValider()</div></div>
+<div class="ttc" id="aclass_bluetooth_html_a2c5ad5cd3517b5f2a58f2cbe1e05dd11"><div class="ttname"><a href="class_bluetooth.html#a2c5ad5cd3517b5f2a58f2cbe1e05dd11">Bluetooth::deconnecte</a></div><div class="ttdeci">void deconnecte()</div></div>
+<div class="ttc" id="aclass_bluetooth_html_a31210f8b2d1cd3fa1c7dbf2e880a916b"><div class="ttname"><a href="class_bluetooth.html#a31210f8b2d1cd3fa1c7dbf2e880a916b">Bluetooth::abandonPartie</a></div><div class="ttdeci">void abandonPartie()</div></div>
+<div class="ttc" id="aclass_bluetooth_html_a3c2b05721eef49ec945650905568c20d"><div class="ttname"><a href="class_bluetooth.html#a3c2b05721eef49ec945650905568c20d">Bluetooth::connecte</a></div><div class="ttdeci">void connecte()</div></div>
+<div class="ttc" id="aclass_bluetooth_html_a4a2bba1ddd942971430b19b172300d97"><div class="ttname"><a href="class_bluetooth.html#a4a2bba1ddd942971430b19b172300d97">Bluetooth::Bluetooth</a></div><div class="ttdeci">Bluetooth(QObject *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="bluetooth_8cpp_source.html#l00004">bluetooth.cpp:4</a></div></div>
+<div class="ttc" id="aclass_bluetooth_html_a4e004bb1ea688b0e86aac5d27821d0ab"><div class="ttname"><a href="class_bluetooth.html#a4e004bb1ea688b0e86aac5d27821d0ab">Bluetooth::peripheriqueDistant</a></div><div class="ttdeci">QBluetoothDeviceInfo peripheriqueDistant</div><div class="ttdef"><b>Definition:</b> <a href="bluetooth_8h_source.html#l00065">bluetooth.h:65</a></div></div>
+<div class="ttc" id="aclass_bluetooth_html_a55548671e21646dad1f99d068097e2c3"><div class="ttname"><a href="class_bluetooth.html#a55548671e21646dad1f99d068097e2c3">Bluetooth::envoyerTrame</a></div><div class="ttdeci">void envoyerTrame(const QString &amp;trame)</div><div class="ttdef"><b>Definition:</b> <a href="bluetooth_8cpp_source.html#l00035">bluetooth.cpp:35</a></div></div>
+<div class="ttc" id="aclass_bluetooth_html_a5663d28dd0192e24a7c62295d59d183c"><div class="ttname"><a href="class_bluetooth.html#a5663d28dd0192e24a7c62295d59d183c">Bluetooth::deconnecter</a></div><div class="ttdeci">void deconnecter()</div><div class="ttdef"><b>Definition:</b> <a href="bluetooth_8cpp_source.html#l00085">bluetooth.cpp:85</a></div></div>
+<div class="ttc" id="aclass_bluetooth_html_a5ce9e6d410d29160b82b7d3dcc4abdf2"><div class="ttname"><a href="class_bluetooth.html#a5ce9e6d410d29160b82b7d3dcc4abdf2">Bluetooth::tirReussi</a></div><div class="ttdeci">void tirReussi(int numeroTable, int numeroTrou)</div></div>
+<div class="ttc" id="aclass_bluetooth_html_a68358817b11394edc93cbecc143f7a5a"><div class="ttname"><a href="class_bluetooth.html#a68358817b11394edc93cbecc143f7a5a">Bluetooth::connecterSocket</a></div><div class="ttdeci">void connecterSocket()</div><div class="ttdef"><b>Definition:</b> <a href="bluetooth_8cpp_source.html#l00095">bluetooth.cpp:95</a></div></div>
+<div class="ttc" id="aclass_bluetooth_html_a71dc2b4ae200e4b37625e4313089c0ee"><div class="ttname"><a href="class_bluetooth.html#a71dc2b4ae200e4b37625e4313089c0ee">Bluetooth::recevoirTrame</a></div><div class="ttdeci">void recevoirTrame()</div><div class="ttdef"><b>Definition:</b> <a href="bluetooth_8cpp_source.html#l00109">bluetooth.cpp:109</a></div></div>
+<div class="ttc" id="aclass_bluetooth_html_a72f13845969bdb9ffba04e88d5ab0021"><div class="ttname"><a href="class_bluetooth.html#a72f13845969bdb9ffba04e88d5ab0021">Bluetooth::peripheriqueLocal</a></div><div class="ttdeci">QBluetoothLocalDevice peripheriqueLocal</div><div class="ttdef"><b>Definition:</b> <a href="bluetooth_8h_source.html#l00066">bluetooth.h:66</a></div></div>
+<div class="ttc" id="aclass_bluetooth_html_a7707ce6f4a9b83d8009abc2f135bd2c8"><div class="ttname"><a href="class_bluetooth.html#a7707ce6f4a9b83d8009abc2f135bd2c8">Bluetooth::connecter</a></div><div class="ttdeci">void connecter()</div><div class="ttdef"><b>Definition:</b> <a href="bluetooth_8cpp_source.html#l00065">bluetooth.cpp:65</a></div></div>
+<div class="ttc" id="aclass_bluetooth_html_a9e81126aecd1f91735d19634040b90cd"><div class="ttname"><a href="class_bluetooth.html#a9e81126aecd1f91735d19634040b90cd">Bluetooth::encodeurDroite</a></div><div class="ttdeci">void encodeurDroite()</div></div>
+<div class="ttc" id="aclass_bluetooth_html_aa1544a5f4cadcc689627a6c69031e583"><div class="ttname"><a href="class_bluetooth.html#aa1544a5f4cadcc689627a6c69031e583">Bluetooth::~Bluetooth</a></div><div class="ttdeci">~Bluetooth()</div><div class="ttdef"><b>Definition:</b> <a href="bluetooth_8cpp_source.html#l00010">bluetooth.cpp:10</a></div></div>
+<div class="ttc" id="aclass_bluetooth_html_aa2027d1356e7917f47fb5dd2686264eb"><div class="ttname"><a href="class_bluetooth.html#aa2027d1356e7917f47fb5dd2686264eb">Bluetooth::deconnecterSocket</a></div><div class="ttdeci">void deconnecterSocket()</div><div class="ttdef"><b>Definition:</b> <a href="bluetooth_8cpp_source.html#l00102">bluetooth.cpp:102</a></div></div>
+<div class="ttc" id="aclass_bluetooth_html_aadadd8cefdda0ba36cadef057fbc4dc8"><div class="ttname"><a href="class_bluetooth.html#aadadd8cefdda0ba36cadef057fbc4dc8">Bluetooth::encodeurGauche</a></div><div class="ttdeci">void encodeurGauche()</div></div>
+<div class="ttc" id="aclass_bluetooth_html_ab83be3cd29a0f5210ecaa50092c456f8"><div class="ttname"><a href="class_bluetooth.html#ab83be3cd29a0f5210ecaa50092c456f8">Bluetooth::rechercherPeripherique</a></div><div class="ttdeci">void rechercherPeripherique(QBluetoothDeviceInfo peripherique)</div><div class="ttdef"><b>Definition:</b> <a href="bluetooth_8cpp_source.html#l00044">bluetooth.cpp:44</a></div></div>
+<div class="ttc" id="aclass_bluetooth_html_ac6f2bc0823731ccba589c56de4a0a8eb"><div class="ttname"><a href="class_bluetooth.html#ac6f2bc0823731ccba589c56de4a0a8eb">Bluetooth::agentDecouverteBluetooth</a></div><div class="ttdeci">QBluetoothDeviceDiscoveryAgent * agentDecouverteBluetooth</div><div class="ttdef"><b>Definition:</b> <a href="bluetooth_8h_source.html#l00064">bluetooth.h:64</a></div></div>
+<div class="ttc" id="aclass_bluetooth_html_ac8c40f520d67465d53b43b7ff40adb89"><div class="ttname"><a href="class_bluetooth.html#ac8c40f520d67465d53b43b7ff40adb89">Bluetooth::traiterTrame</a></div><div class="ttdeci">bool traiterTrame(QString trame)</div><div class="ttdef"><b>Definition:</b> <a href="bluetooth_8cpp_source.html#l00118">bluetooth.cpp:118</a></div></div>
+<div class="ttc" id="aclass_bluetooth_html_af5463db2d9ae9f449c34efdcbb9b72af"><div class="ttname"><a href="class_bluetooth.html#af5463db2d9ae9f449c34efdcbb9b72af">Bluetooth::initialiserCommunication</a></div><div class="ttdeci">void initialiserCommunication()</div><div class="ttdef"><b>Definition:</b> <a href="bluetooth_8cpp_source.html#l00018">bluetooth.cpp:18</a></div></div>
+<div class="ttc" id="aclass_bluetooth_html_afb9a5ea7d5922925dbb3d78df496fac7"><div class="ttname"><a href="class_bluetooth.html#afb9a5ea7d5922925dbb3d78df496fac7">Bluetooth::acquittement</a></div><div class="ttdeci">void acquittement()</div></div>
+<div class="ttc" id="aclass_bluetooth_html_affc06510a37cd3f6b4f9e2cf9777394f"><div class="ttname"><a href="class_bluetooth.html#affc06510a37cd3f6b4f9e2cf9777394f">Bluetooth::socket</a></div><div class="ttdeci">QBluetoothSocket * socket</div><div class="ttdef"><b>Definition:</b> <a href="bluetooth_8h_source.html#l00063">bluetooth.h:63</a></div></div>
+<div class="ttc" id="aclass_q_object_html"><div class="ttname"><a href="class_q_object.html">QObject</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.9.1-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_54388b7463713e70051517988c8185f3.html">jolly-jumpi-rpi</a></li><li class="navelem"><a class="el" href="bluetooth_8h.html">bluetooth.h</a></li>
+    <li class="footer"><img class="footer" src="lasalle-logo.png" height="31" alt="La Salle Avignon"/>&nbsp;<b>Campus La Salle Avignon</b>&nbsp;-&nbsp;9 Rue Notre Dame des 7 douleurs&nbsp;-&nbsp;BP 50165&nbsp;-&nbsp;84008 Avignon&nbsp;-&nbsp;Généré le Samedi 8 Juin 2024 07:58:11 pour Projet jolly-jumpi par&nbsp;<a href="https://www.doxygen.org/index.html">doxygen</a>&nbsp;1.9.1&nbsp;</li>
+  </ul>
+</div>
+</body>
+</html>

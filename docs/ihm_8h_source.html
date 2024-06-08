@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projet jolly-jumpi:  Fichier source de ihm.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="customdoxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="projet-logo.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Projet jolly-jumpi
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+   <div id="projectbrief">BTS SNIR LaSalle Avignon 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('ihm_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">ihm.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="ihm_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef IHM_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define IHM_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;QtWidgets&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;QVector&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="ihm_8h.html#a75a6df0e4e67539a5599efbd68bae5eb">   18</a></span>&#160;<span class="preprocessor">#define NOM_APPLICATION &quot;Jolly Jumpi&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">class </span><a class="code" href="class_partie.html">Partie</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">class </span><a class="code" href="class_options.html">Options</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">class </span><a class="code" href="class_score.html">Score</a>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">class </span><a class="code" href="class_bluetooth.html">Bluetooth</a>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="class_i_h_m.html">   31</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_i_h_m.html">IHM</a> : <span class="keyword">public</span> <a class="code" href="class_q_main_window.html">QMainWindow</a></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_i_h_m.html#a84bd9f469337c5c1a9bf3a949cd8b561">IHM</a>(<a class="code" href="class_q_widget.html">QWidget</a>* parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="class_i_h_m.html#af220622a4304f5a9ed1da28abb7da14d">~IHM</a>();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="class_i_h_m.html#ab3e3659a7de724fb7b57850c80b3dfa3">   44</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="class_i_h_m.html#ab3e3659a7de724fb7b57850c80b3dfa3">Bouton</a></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_i_h_m.html#ab3e3659a7de724fb7b57850c80b3dfa3a445e35800d4d4ced2d7bce51aba4e00c">   46</a></span>&#160;        <a class="code" href="class_i_h_m.html#ab3e3659a7de724fb7b57850c80b3dfa3a445e35800d4d4ced2d7bce51aba4e00c">Accueil</a> = -1,</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="class_i_h_m.html#ab3e3659a7de724fb7b57850c80b3dfa3ad4f05ff504cf5642b04f8d9b67714163">   47</a></span>&#160;        <a class="code" href="class_i_h_m.html#ab3e3659a7de724fb7b57850c80b3dfa3ad4f05ff504cf5642b04f8d9b67714163">B_Jouer</a>,</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="class_i_h_m.html#ab3e3659a7de724fb7b57850c80b3dfa3a4372087df4953556451dc91c23fee823">   48</a></span>&#160;        <a class="code" href="class_i_h_m.html#ab3e3659a7de724fb7b57850c80b3dfa3a4372087df4953556451dc91c23fee823">B_Options</a>,</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="class_i_h_m.html#ab3e3659a7de724fb7b57850c80b3dfa3aaeb152602d5f6f00879471ae473a4b67">   49</a></span>&#160;        <a class="code" href="class_i_h_m.html#ab3e3659a7de724fb7b57850c80b3dfa3aaeb152602d5f6f00879471ae473a4b67">B_Score</a>,</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <a class="code" href="class_i_h_m.html#ab3e3659a7de724fb7b57850c80b3dfa3a81461f6062417ff237278f5ff91f307d">NbBoutons</a></div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="class_i_h_m.html#ab3e3659a7de724fb7b57850c80b3dfa3a81461f6062417ff237278f5ff91f307d">   51</a></span>&#160;    };</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="class_i_h_m.html#a59f42e24f0c48049cc6fa7007ad9494f">   54</a></span>&#160;    <a class="code" href="class_partie.html">Partie</a>*               <a class="code" href="class_i_h_m.html#a59f42e24f0c48049cc6fa7007ad9494f">partie</a>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="class_i_h_m.html#adbb839eaae533ec6d088caef9d5526e5">   55</a></span>&#160;    <a class="code" href="class_options.html">Options</a>*              <a class="code" href="class_i_h_m.html#adbb839eaae533ec6d088caef9d5526e5">options</a>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="class_i_h_m.html#ac5871f942b9f23caa7cfaa4611d9219b">   56</a></span>&#160;    <a class="code" href="class_score.html">Score</a>*                <a class="code" href="class_i_h_m.html#ac5871f942b9f23caa7cfaa4611d9219b">score</a>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="class_i_h_m.html#a2158ffc51f09f3ee671c11e4271b509c">   57</a></span>&#160;    <a class="code" href="class_q_widget.html">QWidget</a>*              <a class="code" href="class_i_h_m.html#a2158ffc51f09f3ee671c11e4271b509c">ecranPrincipal</a>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="class_i_h_m.html#aaa51310cbaf4049dfbfe9c22602a8f2e">   58</a></span>&#160;    QVBoxLayout*          <a class="code" href="class_i_h_m.html#aaa51310cbaf4049dfbfe9c22602a8f2e">layoutPrincipal</a>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="class_i_h_m.html#aef238cf6c85601438b59b6fa5a75683a">   59</a></span>&#160;    QStackedWidget*       <a class="code" href="class_i_h_m.html#aef238cf6c85601438b59b6fa5a75683a">ecrans</a>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="class_i_h_m.html#a06255ef901b668cc95962316c803ab6d">   60</a></span>&#160;    <a class="code" href="class_q_widget.html">QWidget</a>*              <a class="code" href="class_i_h_m.html#a06255ef901b668cc95962316c803ab6d">accueil</a>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="class_i_h_m.html#a1341b2b62b2def1560758eecfb4f8574">   61</a></span>&#160;    QVBoxLayout*          <a class="code" href="class_i_h_m.html#a1341b2b62b2def1560758eecfb4f8574">layoutAccueil</a>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="class_i_h_m.html#a84faab583b03c89c17817b9b833fb573">   62</a></span>&#160;    QVector&lt;QPushButton*&gt; <a class="code" href="class_i_h_m.html#a84faab583b03c89c17817b9b833fb573">boutons</a>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="class_i_h_m.html#a35e9f99bcbb75d5c4cb56daa4f6a2797">   63</a></span>&#160;    <a class="code" href="class_i_h_m.html#ab3e3659a7de724fb7b57850c80b3dfa3">Bouton</a>                <a class="code" href="class_i_h_m.html#a35e9f99bcbb75d5c4cb56daa4f6a2797">choixBouton</a>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="class_i_h_m.html#a0a54e4e71193253687bef4eb2daed5e7">   64</a></span>&#160;    <a class="code" href="class_bluetooth.html">Bluetooth</a>*            <a class="code" href="class_i_h_m.html#a0a54e4e71193253687bef4eb2daed5e7">bluetooth</a>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_i_h_m.html#afa9966e567793b206b2b09cc8e74413c">creerEcrans</a>();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_i_h_m.html#a2e90c762074d15615f7a6396e5409d64">creerBanniere</a>();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_i_h_m.html#ae39ced4c9f3b7f74fb69e44285a6bc1b">creerBoutons</a>();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_i_h_m.html#af2d3ff7400ddf5408bccf45e95e90d9d">creerNavigation</a>();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_i_h_m.html#a7457d00eff30a12cbac597059ca33825">creerInteraction</a>();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keyword">private</span> slots:</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_i_h_m.html#afa4e67eee8ef3bb86ae12b2e48e2b06f">afficherAccueil</a>();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_i_h_m.html#aa80e659cf966ae3763217b1dbe7c4316">jouer</a>();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_i_h_m.html#ab15df996b33b3e6cc4ff2b53bf791b91">reglerParametres</a>();</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_i_h_m.html#a8bda15aa999f12b452c7246891b3bad9">afficherScores</a>();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_i_h_m.html#aa06a0d57131c2b5672209fd10f55aa19">gererAffichageBanniere</a>();</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;};</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// IHM_H</span></div>
+<div class="ttc" id="aclass_bluetooth_html"><div class="ttname"><a href="class_bluetooth.html">Bluetooth</a></div><div class="ttdef"><b>Definition:</b> <a href="bluetooth_8h_source.html#l00032">bluetooth.h:33</a></div></div>
+<div class="ttc" id="aclass_i_h_m_html"><div class="ttname"><a href="class_i_h_m.html">IHM</a></div><div class="ttdoc">Déclaration de la classe IHM.</div><div class="ttdef"><b>Definition:</b> <a href="ihm_8h_source.html#l00031">ihm.h:32</a></div></div>
+<div class="ttc" id="aclass_i_h_m_html_a06255ef901b668cc95962316c803ab6d"><div class="ttname"><a href="class_i_h_m.html#a06255ef901b668cc95962316c803ab6d">IHM::accueil</a></div><div class="ttdeci">QWidget * accueil</div><div class="ttdef"><b>Definition:</b> <a href="ihm_8h_source.html#l00060">ihm.h:60</a></div></div>
+<div class="ttc" id="aclass_i_h_m_html_a0a54e4e71193253687bef4eb2daed5e7"><div class="ttname"><a href="class_i_h_m.html#a0a54e4e71193253687bef4eb2daed5e7">IHM::bluetooth</a></div><div class="ttdeci">Bluetooth * bluetooth</div><div class="ttdef"><b>Definition:</b> <a href="ihm_8h_source.html#l00064">ihm.h:64</a></div></div>
+<div class="ttc" id="aclass_i_h_m_html_a1341b2b62b2def1560758eecfb4f8574"><div class="ttname"><a href="class_i_h_m.html#a1341b2b62b2def1560758eecfb4f8574">IHM::layoutAccueil</a></div><div class="ttdeci">QVBoxLayout * layoutAccueil</div><div class="ttdef"><b>Definition:</b> <a href="ihm_8h_source.html#l00061">ihm.h:61</a></div></div>
+<div class="ttc" id="aclass_i_h_m_html_a2158ffc51f09f3ee671c11e4271b509c"><div class="ttname"><a href="class_i_h_m.html#a2158ffc51f09f3ee671c11e4271b509c">IHM::ecranPrincipal</a></div><div class="ttdeci">QWidget * ecranPrincipal</div><div class="ttdef"><b>Definition:</b> <a href="ihm_8h_source.html#l00057">ihm.h:57</a></div></div>
+<div class="ttc" id="aclass_i_h_m_html_a2e90c762074d15615f7a6396e5409d64"><div class="ttname"><a href="class_i_h_m.html#a2e90c762074d15615f7a6396e5409d64">IHM::creerBanniere</a></div><div class="ttdeci">void creerBanniere()</div><div class="ttdef"><b>Definition:</b> <a href="ihm_8cpp_source.html#l00112">ihm.cpp:112</a></div></div>
+<div class="ttc" id="aclass_i_h_m_html_a35e9f99bcbb75d5c4cb56daa4f6a2797"><div class="ttname"><a href="class_i_h_m.html#a35e9f99bcbb75d5c4cb56daa4f6a2797">IHM::choixBouton</a></div><div class="ttdeci">Bouton choixBouton</div><div class="ttdef"><b>Definition:</b> <a href="ihm_8h_source.html#l00063">ihm.h:63</a></div></div>
+<div class="ttc" id="aclass_i_h_m_html_a59f42e24f0c48049cc6fa7007ad9494f"><div class="ttname"><a href="class_i_h_m.html#a59f42e24f0c48049cc6fa7007ad9494f">IHM::partie</a></div><div class="ttdeci">Partie * partie</div><div class="ttdef"><b>Definition:</b> <a href="ihm_8h_source.html#l00054">ihm.h:54</a></div></div>
+<div class="ttc" id="aclass_i_h_m_html_a7457d00eff30a12cbac597059ca33825"><div class="ttname"><a href="class_i_h_m.html#a7457d00eff30a12cbac597059ca33825">IHM::creerInteraction</a></div><div class="ttdeci">void creerInteraction()</div><div class="ttdef"><b>Definition:</b> <a href="ihm_8cpp_source.html#l00192">ihm.cpp:192</a></div></div>
+<div class="ttc" id="aclass_i_h_m_html_a84bd9f469337c5c1a9bf3a949cd8b561"><div class="ttname"><a href="class_i_h_m.html#a84bd9f469337c5c1a9bf3a949cd8b561">IHM::IHM</a></div><div class="ttdeci">IHM(QWidget *parent=nullptr)</div><div class="ttdoc">Constructeur de la classe IHM.</div><div class="ttdef"><b>Definition:</b> <a href="ihm_8cpp_source.html#l00023">ihm.cpp:23</a></div></div>
+<div class="ttc" id="aclass_i_h_m_html_a84faab583b03c89c17817b9b833fb573"><div class="ttname"><a href="class_i_h_m.html#a84faab583b03c89c17817b9b833fb573">IHM::boutons</a></div><div class="ttdeci">QVector&lt; QPushButton * &gt; boutons</div><div class="ttdef"><b>Definition:</b> <a href="ihm_8h_source.html#l00062">ihm.h:62</a></div></div>
+<div class="ttc" id="aclass_i_h_m_html_a8bda15aa999f12b452c7246891b3bad9"><div class="ttname"><a href="class_i_h_m.html#a8bda15aa999f12b452c7246891b3bad9">IHM::afficherScores</a></div><div class="ttdeci">void afficherScores()</div><div class="ttdef"><b>Definition:</b> <a href="ihm_8cpp_source.html#l00078">ihm.cpp:78</a></div></div>
+<div class="ttc" id="aclass_i_h_m_html_aa06a0d57131c2b5672209fd10f55aa19"><div class="ttname"><a href="class_i_h_m.html#aa06a0d57131c2b5672209fd10f55aa19">IHM::gererAffichageBanniere</a></div><div class="ttdeci">void gererAffichageBanniere()</div><div class="ttdef"><b>Definition:</b> <a href="ihm_8cpp_source.html#l00131">ihm.cpp:131</a></div></div>
+<div class="ttc" id="aclass_i_h_m_html_aa80e659cf966ae3763217b1dbe7c4316"><div class="ttname"><a href="class_i_h_m.html#aa80e659cf966ae3763217b1dbe7c4316">IHM::jouer</a></div><div class="ttdeci">void jouer()</div><div class="ttdef"><b>Definition:</b> <a href="ihm_8cpp_source.html#l00062">ihm.cpp:62</a></div></div>
+<div class="ttc" id="aclass_i_h_m_html_aaa51310cbaf4049dfbfe9c22602a8f2e"><div class="ttname"><a href="class_i_h_m.html#aaa51310cbaf4049dfbfe9c22602a8f2e">IHM::layoutPrincipal</a></div><div class="ttdeci">QVBoxLayout * layoutPrincipal</div><div class="ttdef"><b>Definition:</b> <a href="ihm_8h_source.html#l00058">ihm.h:58</a></div></div>
+<div class="ttc" id="aclass_i_h_m_html_ab15df996b33b3e6cc4ff2b53bf791b91"><div class="ttname"><a href="class_i_h_m.html#ab15df996b33b3e6cc4ff2b53bf791b91">IHM::reglerParametres</a></div><div class="ttdeci">void reglerParametres()</div><div class="ttdef"><b>Definition:</b> <a href="ihm_8cpp_source.html#l00072">ihm.cpp:72</a></div></div>
+<div class="ttc" id="aclass_i_h_m_html_ab3e3659a7de724fb7b57850c80b3dfa3"><div class="ttname"><a href="class_i_h_m.html#ab3e3659a7de724fb7b57850c80b3dfa3">IHM::Bouton</a></div><div class="ttdeci">Bouton</div><div class="ttdoc">Définit les différentes boutons de l'IHM.</div><div class="ttdef"><b>Definition:</b> <a href="ihm_8h_source.html#l00044">ihm.h:45</a></div></div>
+<div class="ttc" id="aclass_i_h_m_html_ab3e3659a7de724fb7b57850c80b3dfa3a4372087df4953556451dc91c23fee823"><div class="ttname"><a href="class_i_h_m.html#ab3e3659a7de724fb7b57850c80b3dfa3a4372087df4953556451dc91c23fee823">IHM::B_Options</a></div><div class="ttdeci">@ B_Options</div><div class="ttdef"><b>Definition:</b> <a href="ihm_8h_source.html#l00048">ihm.h:48</a></div></div>
+<div class="ttc" id="aclass_i_h_m_html_ab3e3659a7de724fb7b57850c80b3dfa3a445e35800d4d4ced2d7bce51aba4e00c"><div class="ttname"><a href="class_i_h_m.html#ab3e3659a7de724fb7b57850c80b3dfa3a445e35800d4d4ced2d7bce51aba4e00c">IHM::Accueil</a></div><div class="ttdeci">@ Accueil</div><div class="ttdef"><b>Definition:</b> <a href="ihm_8h_source.html#l00046">ihm.h:46</a></div></div>
+<div class="ttc" id="aclass_i_h_m_html_ab3e3659a7de724fb7b57850c80b3dfa3a81461f6062417ff237278f5ff91f307d"><div class="ttname"><a href="class_i_h_m.html#ab3e3659a7de724fb7b57850c80b3dfa3a81461f6062417ff237278f5ff91f307d">IHM::NbBoutons</a></div><div class="ttdeci">@ NbBoutons</div><div class="ttdef"><b>Definition:</b> <a href="ihm_8h_source.html#l00051">ihm.h:50</a></div></div>
+<div class="ttc" id="aclass_i_h_m_html_ab3e3659a7de724fb7b57850c80b3dfa3aaeb152602d5f6f00879471ae473a4b67"><div class="ttname"><a href="class_i_h_m.html#ab3e3659a7de724fb7b57850c80b3dfa3aaeb152602d5f6f00879471ae473a4b67">IHM::B_Score</a></div><div class="ttdeci">@ B_Score</div><div class="ttdef"><b>Definition:</b> <a href="ihm_8h_source.html#l00049">ihm.h:49</a></div></div>
+<div class="ttc" id="aclass_i_h_m_html_ab3e3659a7de724fb7b57850c80b3dfa3ad4f05ff504cf5642b04f8d9b67714163"><div class="ttname"><a href="class_i_h_m.html#ab3e3659a7de724fb7b57850c80b3dfa3ad4f05ff504cf5642b04f8d9b67714163">IHM::B_Jouer</a></div><div class="ttdeci">@ B_Jouer</div><div class="ttdef"><b>Definition:</b> <a href="ihm_8h_source.html#l00047">ihm.h:47</a></div></div>
+<div class="ttc" id="aclass_i_h_m_html_ac5871f942b9f23caa7cfaa4611d9219b"><div class="ttname"><a href="class_i_h_m.html#ac5871f942b9f23caa7cfaa4611d9219b">IHM::score</a></div><div class="ttdeci">Score * score</div><div class="ttdef"><b>Definition:</b> <a href="ihm_8h_source.html#l00056">ihm.h:56</a></div></div>
+<div class="ttc" id="aclass_i_h_m_html_adbb839eaae533ec6d088caef9d5526e5"><div class="ttname"><a href="class_i_h_m.html#adbb839eaae533ec6d088caef9d5526e5">IHM::options</a></div><div class="ttdeci">Options * options</div><div class="ttdef"><b>Definition:</b> <a href="ihm_8h_source.html#l00055">ihm.h:55</a></div></div>
+<div class="ttc" id="aclass_i_h_m_html_ae39ced4c9f3b7f74fb69e44285a6bc1b"><div class="ttname"><a href="class_i_h_m.html#ae39ced4c9f3b7f74fb69e44285a6bc1b">IHM::creerBoutons</a></div><div class="ttdeci">void creerBoutons()</div><div class="ttdef"><b>Definition:</b> <a href="ihm_8cpp_source.html#l00143">ihm.cpp:143</a></div></div>
+<div class="ttc" id="aclass_i_h_m_html_aef238cf6c85601438b59b6fa5a75683a"><div class="ttname"><a href="class_i_h_m.html#aef238cf6c85601438b59b6fa5a75683a">IHM::ecrans</a></div><div class="ttdeci">QStackedWidget * ecrans</div><div class="ttdef"><b>Definition:</b> <a href="ihm_8h_source.html#l00059">ihm.h:59</a></div></div>
+<div class="ttc" id="aclass_i_h_m_html_af220622a4304f5a9ed1da28abb7da14d"><div class="ttname"><a href="class_i_h_m.html#af220622a4304f5a9ed1da28abb7da14d">IHM::~IHM</a></div><div class="ttdeci">~IHM()</div><div class="ttdef"><b>Definition:</b> <a href="ihm_8cpp_source.html#l00051">ihm.cpp:51</a></div></div>
+<div class="ttc" id="aclass_i_h_m_html_af2d3ff7400ddf5408bccf45e95e90d9d"><div class="ttname"><a href="class_i_h_m.html#af2d3ff7400ddf5408bccf45e95e90d9d">IHM::creerNavigation</a></div><div class="ttdeci">void creerNavigation()</div><div class="ttdef"><b>Definition:</b> <a href="ihm_8cpp_source.html#l00182">ihm.cpp:182</a></div></div>
+<div class="ttc" id="aclass_i_h_m_html_afa4e67eee8ef3bb86ae12b2e48e2b06f"><div class="ttname"><a href="class_i_h_m.html#afa4e67eee8ef3bb86ae12b2e48e2b06f">IHM::afficherAccueil</a></div><div class="ttdeci">void afficherAccueil()</div><div class="ttdef"><b>Definition:</b> <a href="ihm_8cpp_source.html#l00056">ihm.cpp:56</a></div></div>
+<div class="ttc" id="aclass_i_h_m_html_afa9966e567793b206b2b09cc8e74413c"><div class="ttname"><a href="class_i_h_m.html#afa9966e567793b206b2b09cc8e74413c">IHM::creerEcrans</a></div><div class="ttdeci">void creerEcrans()</div><div class="ttdef"><b>Definition:</b> <a href="ihm_8cpp_source.html#l00084">ihm.cpp:84</a></div></div>
+<div class="ttc" id="aclass_options_html"><div class="ttname"><a href="class_options.html">Options</a></div><div class="ttdef"><b>Definition:</b> <a href="options_8h_source.html#l00006">options.h:7</a></div></div>
+<div class="ttc" id="aclass_partie_html"><div class="ttname"><a href="class_partie.html">Partie</a></div><div class="ttdef"><b>Definition:</b> <a href="partie_8h_source.html#l00023">partie.h:24</a></div></div>
+<div class="ttc" id="aclass_q_main_window_html"><div class="ttname"><a href="class_q_main_window.html">QMainWindow</a></div></div>
+<div class="ttc" id="aclass_q_widget_html"><div class="ttname"><a href="class_q_widget.html">QWidget</a></div></div>
+<div class="ttc" id="aclass_score_html"><div class="ttname"><a href="class_score.html">Score</a></div><div class="ttdef"><b>Definition:</b> <a href="score_8h_source.html#l00006">score.h:7</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.9.1-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_54388b7463713e70051517988c8185f3.html">jolly-jumpi-rpi</a></li><li class="navelem"><a class="el" href="ihm_8h.html">ihm.h</a></li>
+    <li class="footer"><img class="footer" src="lasalle-logo.png" height="31" alt="La Salle Avignon"/>&nbsp;<b>Campus La Salle Avignon</b>&nbsp;-&nbsp;9 Rue Notre Dame des 7 douleurs&nbsp;-&nbsp;BP 50165&nbsp;-&nbsp;84008 Avignon&nbsp;-&nbsp;Généré le Samedi 8 Juin 2024 07:58:11 pour Projet jolly-jumpi par&nbsp;<a href="https://www.doxygen.org/index.html">doxygen</a>&nbsp;1.9.1&nbsp;</li>
+  </ul>
+</div>
+</body>
+</html>
