@@ -8,6 +8,7 @@
   - [Présentation](#présentation)
   - [Fonctionnalités](#fonctionnalités)
   - [Screenshots](#screenshots)
+  - [Diaporama de présentation](#diaporama-de-présentation)
   - [Documentation du code](#documentation-du-code)
   - [Diagramme de classes](#diagramme-de-classes)
   - [Protocole](#protocole)
@@ -27,6 +28,10 @@ Le système Jolly-JumPi est un système numérique permettant de jouer au tierc�
 ## Screenshots
 
 ![screenshot-partie-v0.2](images/jolly-jumpi-v1.0.gif)
+
+## Diaporama de présentation
+
+- [Oral - Célian Armando.pptx](diaporamas/Oral%20-%20Célian%20Armando.pptx)
 
 ## Documentation du code
 
